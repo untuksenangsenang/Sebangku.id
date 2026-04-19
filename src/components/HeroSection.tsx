@@ -2,133 +2,97 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { ArrowRight, Layers, Star, Users } from "lucide-react";
-import { Button } from "@/components/ui/button";
-import { Badge } from "@/components/ui/badge";
+import { Gamepad2, Blocks } from "lucide-react";
 
 export default function HeroSection() {
   return (
     <section
       id="beranda"
-      className="relative min-h-screen flex items-center pt-16 overflow-hidden bg-gradient-to-br from-white via-blue-50/40 to-indigo-50/30"
+      className="relative min-h-[100svh] flex items-center justify-center pt-24 pb-16 overflow-hidden bg-[#020617]"
     >
-      {/* Background decorative blobs */}
-      <div className="absolute top-20 right-0 w-96 h-96 bg-blue-100/50 rounded-full blur-3xl pointer-events-none" />
-      <div className="absolute bottom-10 left-0 w-72 h-72 bg-indigo-100/40 rounded-full blur-3xl pointer-events-none" />
+      {/* Background radial gradient layers to match screenshot vibes */}
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-blue-900/40 via-[#020617] to-[#020617] pointer-events-none" />
+      
+      {/* Optional faint vertical grid lines matching screenshot */}
+      <div 
+        className="absolute inset-0 opacity-10 pointer-events-none" 
+        style={{
+          backgroundImage: 'linear-gradient(to right, #4f4f4f 1px, transparent 1px)',
+          backgroundSize: '100px 100%'
+        }}
+      />
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-28 w-full">
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-
-          {/* ── Left — Text ─────────────────────────────── */}
-          <div className="flex flex-col gap-6 animate-fadeIn">
-            <Badge className="self-start bg-blue-100 text-blue-700 hover:bg-blue-100 border-0 rounded-full px-4 py-1.5 text-sm font-semibold">
-              🎲 Ekosistem Game-Based Learning #1 Indonesia
-            </Badge>
-
-            <h1 className="text-4xl sm:text-5xl lg:text-[3.25rem] font-extrabold leading-tight text-gray-900 tracking-tight">
-              Transformasi{" "}
-              <span className="text-blue-600">Edukasi</span>{" "}
-              Melalui{" "}
-              <span className="relative inline-block">
-                <span className="relative z-10 text-blue-600">Media Permainan</span>
-                <span className="absolute -bottom-1 left-0 w-full h-3 bg-blue-100 rounded-full -z-0" />
-              </span>
-            </h1>
-
-            <p className="text-lg text-gray-600 leading-relaxed max-w-xl">
-              Kami percaya karakter terbaik tumbuh melalui pengalaman bermain
-              yang bermakna. Sebangku.id hadir sebagai ekosistem{" "}
-              <strong className="text-gray-800">Game-Based Learning</strong> —
-              menggabungkan board game edukatif, pelatihan fasilitator, dan
-              ruang belajar yang menyenangkan untuk semua usia.
-            </p>
-
-            {/* Stats */}
-            <div className="flex flex-wrap gap-6 py-2">
-              {[
-                { icon: Layers, value: "100+", label: "Koleksi Board Game" },
-                { icon: Users, value: "5.000+", label: "Pelajar Terlayani" },
-                { icon: Star, value: "4.9", label: "Rating Kepuasan" },
-              ].map(({ icon: Icon, value, label }) => (
-                <div key={label} className="flex items-center gap-2">
-                  <div className="w-8 h-8 rounded-lg bg-blue-100 flex items-center justify-center">
-                    <Icon className="w-4 h-4 text-blue-600" />
-                  </div>
-                  <div>
-                    <p className="text-sm font-bold text-gray-900 leading-none">{value}</p>
-                    <p className="text-xs text-gray-500 mt-0.5">{label}</p>
-                  </div>
-                </div>
-              ))}
-            </div>
-
-            {/* CTA */}
-            <div className="flex flex-wrap gap-4 pt-2">
-              <Button
-                id="hero-cta-katalog"
-                size="lg"
-                className="bg-blue-600 hover:bg-blue-700 text-white font-bold shadow-lg hover:shadow-blue-300/60 transition-all duration-300 rounded-xl px-7 gap-2 group"
-                asChild
-              >
-                <Link href="#ekosistem">
-                  Eksplorasi Katalog
-                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                </Link>
-              </Button>
-              <Button
-                id="hero-cta-tentang"
-                size="lg"
-                variant="outline"
-                className="border-2 border-blue-200 text-blue-700 font-bold hover:bg-blue-50 hover:border-blue-400 transition-all duration-300 rounded-xl px-7"
-                asChild
-              >
-                <Link href="#expertise">Tentang Kami</Link>
-              </Button>
-            </div>
-          </div>
-
-          {/* ── Right — Image + floating cards ──────────── */}
-          <div className="relative flex justify-center lg:justify-end">
-            <div className="relative w-full max-w-lg">
-              {/* Main image */}
-              <div className="relative rounded-3xl overflow-hidden shadow-2xl shadow-blue-200/40 border-4 border-white">
-                <Image
-                  src="https://images.unsplash.com/photo-1610890716171-6b1bb98ffd09?w=700&q=80&auto=format&fit=crop"
-                  alt="Aktivitas bermain board game edukatif bersama"
-                  width={700}
-                  height={500}
-                  className="w-full h-80 lg:h-[420px] object-cover"
-                  priority
-                />
-                <div className="absolute inset-0 bg-gradient-to-tr from-blue-600/10 to-transparent" />
-              </div>
-
-              {/* Floating card — collection */}
-              <div className="absolute -bottom-5 -left-5 bg-white rounded-2xl shadow-xl border border-blue-100 px-5 py-3.5 flex items-center gap-3 animate-float">
-                <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-blue-500 to-blue-700 flex items-center justify-center shadow-md">
-                  <Layers className="w-5 h-5 text-white" />
-                </div>
-                <div>
-                  <p className="text-lg font-extrabold text-gray-900 leading-none">100+</p>
-                  <p className="text-xs text-gray-500 mt-0.5 font-medium">Koleksi Board Game</p>
-                </div>
-              </div>
-
-              {/* Floating card — rating */}
-              <div className="absolute -top-4 -right-4 bg-white rounded-2xl shadow-xl border border-yellow-100 px-4 py-3 flex items-center gap-2 animate-float-delay">
-                <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-yellow-400 to-orange-400 flex items-center justify-center shadow-md">
-                  <Star className="w-4 h-4 text-white fill-white" />
-                </div>
-                <div>
-                  <p className="text-sm font-extrabold text-gray-900 leading-none">4.9 / 5.0</p>
-                  <p className="text-xs text-gray-500 mt-0.5">Rating Terbaik</p>
-                </div>
-              </div>
-            </div>
-          </div>
-
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full relative z-10 flex flex-col items-center text-center mt-12">
+        
+        {/* Badge Center */}
+        <div className="animate-fadeIn opacity-0 [animation-delay:100ms] flex items-center gap-2 border border-blue-500/30 bg-white/5 backdrop-blur-sm rounded-full px-5 py-2 mb-8 shadow-[0_0_15px_rgba(59,130,246,0.15)]">
+          <span className="text-sm font-medium text-slate-300">
+            Ekosistem Game - Based Learning <span className="text-blue-400 font-bold tracking-wide">#1 Indonesia</span>
+          </span>
         </div>
+
+        {/* Main Heading Center */}
+        <h1 className="animate-fadeIn opacity-0 [animation-delay:200ms] text-4xl sm:text-3xl md:text-6xl lg:text-[4.5rem] font-extrabold text-white leading-[1.1] tracking-tight max-w-5xl mb-8">
+          Transformasi <span className="text-blue-400">Edukasi</span> Melalui <br />
+          Media <span className="text-blue-400">Permainan</span>
+          <span className="inline-flex items-center align-middle ml-3 -mt-2">
+             <div className="w-10 h-10 md:w-12 md:h-12 bg-white rounded-full flex items-center justify-center shadow-lg hover:scale-110 transition-transform relative z-10">
+                <Gamepad2 className="w-5 h-5 md:w-6 md:h-6 text-[#020617] fill-[#020617]" />
+             </div>
+             <div className="w-10 h-10 md:w-12 md:h-12 bg-blue-500 rounded-full flex items-center justify-center shadow-lg hover:scale-110 transition-transform -ml-3 relative z-0 border-2 border-[#020617]">
+                <Blocks className="w-5 h-5 md:w-6 md:h-6 text-white fill-white" />
+             </div>
+          </span>
+        </h1>
+
+        {/* Subtitle Center */}
+        <p className="animate-fadeIn opacity-0 [animation-delay:300ms] text-base md:text-lg text-slate-400 max-w-2xl mx-auto mb-10 leading-relaxed font-light">
+          Ekosistem Game-Based Learning untuk pengembangan karakter <br className="hidden md:block" />
+          dan kreativitas melalui board game edukasi
+        </p>
+
+        {/* Custom Buttons Center */}
+        <div className="animate-fadeIn opacity-0 [animation-delay:400ms] flex flex-wrap justify-center gap-4">
+          <Link 
+            href="#ekosistem" 
+            className="px-8 py-3.5 rounded-full border border-slate-700 bg-white/5 text-slate-300 font-medium hover:bg-white/10 hover:text-white transition-all backdrop-blur-sm"
+          >
+            Explorasi Katalog
+          </Link>
+          <Link 
+            href="#expertise" 
+            className="px-8 py-3.5 rounded-full border border-slate-700 bg-slate-900/50 text-slate-300 font-medium hover:bg-white/10 hover:text-white transition-all backdrop-blur-sm"
+          >
+            Tentang Kami
+          </Link>
+        </div>
+
       </div>
+
+      
+      {/* VR Headset Image on the LEFT */}
+      <div className="absolute left-0 bottom-0 md:bottom-[5%] w-64 md:w-80 lg:w-[450px] -translate-x-[20%] translate-y-1/4 pointer-events-none drop-shadow-[0_0_40px_rgba(37,99,235,0.4)] animate-float-slow z-20">
+        <Image
+          src="/assets/vrasset.png"
+          alt="Virtual Reality Asset"
+          width={600}
+          height={600}
+          className="w-full h-auto object-contain drop-shadow-2xl opacity-90"
+          priority
+        />
+      </div>
+
+      {/* Rocket Image on the RIGHT */}
+      <div className="absolute right-0 bottom-0 md:bottom-[5%] w-64 md:w-80 lg:w-[420px] translate-x-[20%] translate-y-1/4 pointer-events-none drop-shadow-[0_0_30px_rgba(255,255,255,0.1)] animate-float z-20">
+        <Image
+          src="/assets/rocket.png"
+          alt="Rocket"
+          width={600}
+          height={600}
+          className="w-full h-auto object-contain drop-shadow-2xl opacity-90"
+        />
+      </div>
+
     </section>
   );
 }

@@ -26,16 +26,16 @@ export default function VisitCafeSection() {
   return (
     <section
       id="kunjungi"
-      className="py-20 lg:py-28 bg-gradient-to-br from-blue-600 via-blue-700 to-indigo-800 relative overflow-hidden"
+      className="py-20 lg:py-28 bg-[#020617] relative overflow-hidden border-t border-white/5"
     >
       {/* Background decoration */}
-      <div className="absolute top-0 right-0 w-80 h-80 bg-white/5 rounded-full -translate-y-1/2 translate-x-1/2 pointer-events-none" />
-      <div className="absolute bottom-0 left-0 w-60 h-60 bg-white/5 rounded-full translate-y-1/2 -translate-x-1/2 pointer-events-none" />
+      <div className="absolute top-1/2 right-0 w-[500px] h-[500px] bg-blue-600/10 rounded-full -translate-y-1/2 translate-x-1/4 blur-[120px] pointer-events-none" />
+      <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-indigo-600/10 rounded-full translate-y-1/4 -translate-x-1/4 blur-[120px] pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center mb-12">
-          <Badge className="bg-white/20 text-white hover:bg-white/20 border-0 rounded-full px-4 py-1.5 text-sm font-semibold mb-4 backdrop-blur-sm">
+          <Badge className="bg-blue-900/40 text-blue-300 hover:bg-blue-900/50 border border-blue-500/30 rounded-full px-4 py-1.5 text-sm font-semibold mb-4 backdrop-blur-sm">
             📍 Kunjungi Kami
           </Badge>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white leading-tight">
@@ -51,16 +51,16 @@ export default function VisitCafeSection() {
           {/* Left — Info */}
           <div className="flex flex-col gap-6">
             {/* Address */}
-            <div className="bg-white/10 backdrop-blur-md rounded-2xl border border-white/20 p-6">
+            <div className="bg-white/5 backdrop-blur-md rounded-2xl border border-white/10 p-6 shadow-xl">
               <div className="flex items-start gap-4">
-                <div className="w-11 h-11 rounded-xl bg-white/20 flex items-center justify-center flex-shrink-0">
-                  <MapPin className="w-6 h-6 text-white" />
+                <div className="w-11 h-11 rounded-xl bg-white/10 flex items-center justify-center flex-shrink-0">
+                  <MapPin className="w-6 h-6 text-blue-400" />
                 </div>
                 <div>
                   <h3 className="font-bold text-white text-lg mb-1">
                     Alamat Lengkap
                   </h3>
-                  <p className="text-blue-100 text-sm leading-relaxed">
+                  <p className="text-slate-300 text-sm leading-relaxed">
                     Jl. Prof. Dr. Soepomo No. 24,
                     <br />
                     Warungboto, Umbulharjo,
@@ -70,7 +70,7 @@ export default function VisitCafeSection() {
                   <Link
                     href="https://maps.google.com"
                     target="_blank"
-                    className="inline-flex items-center gap-1.5 mt-2 text-sm text-blue-200 hover:text-white font-medium transition-colors"
+                    className="inline-flex items-center gap-1.5 mt-2 text-sm text-blue-400 hover:text-blue-300 font-medium transition-colors"
                   >
                     <Navigation className="w-3.5 h-3.5" />
                     Buka di Google Maps
@@ -80,10 +80,10 @@ export default function VisitCafeSection() {
             </div>
 
             {/* Hours */}
-            <div className="bg-white/10 backdrop-blur-md rounded-2xl border border-white/20 p-6">
+            <div className="bg-white/5 backdrop-blur-md rounded-2xl border border-white/10 p-6 shadow-xl">
               <div className="flex items-center gap-3 mb-4">
-                <div className="w-11 h-11 rounded-xl bg-white/20 flex items-center justify-center">
-                  <Clock className="w-6 h-6 text-white" />
+                <div className="w-11 h-11 rounded-xl bg-white/10 flex items-center justify-center">
+                  <Clock className="w-6 h-6 text-blue-400" />
                 </div>
                 <h3 className="font-bold text-white text-lg">
                   Jam Operasional
@@ -93,9 +93,9 @@ export default function VisitCafeSection() {
                 {operationalHours.map(({ day, hours }) => (
                   <div
                     key={day}
-                    className="flex items-center justify-between py-2 border-b border-white/10 last:border-0"
+                    className="flex items-center justify-between py-2 border-b border-white/5 last:border-0"
                   >
-                    <span className="text-blue-100 text-sm">{day}</span>
+                    <span className="text-slate-300 text-sm">{day}</span>
                     <span className="font-semibold text-white text-sm">
                       {hours}
                     </span>
@@ -105,14 +105,14 @@ export default function VisitCafeSection() {
             </div>
 
             {/* Contact */}
-            <div className="bg-white/10 backdrop-blur-md rounded-2xl border border-white/20 p-6">
+            <div className="bg-white/5 backdrop-blur-md rounded-2xl border border-white/10 p-6 shadow-xl">
               <div className="flex items-center gap-3 mb-3">
-                <div className="w-11 h-11 rounded-xl bg-white/20 flex items-center justify-center">
-                  <Phone className="w-6 h-6 text-white" />
+                <div className="w-11 h-11 rounded-xl bg-white/10 flex items-center justify-center">
+                  <Phone className="w-6 h-6 text-blue-400" />
                 </div>
                 <h3 className="font-bold text-white text-lg">Kontak</h3>
               </div>
-              <p className="text-blue-100 text-sm mb-4">
+              <p className="text-slate-300 text-sm mb-4">
                 +62 812-3456-7890 &nbsp;|&nbsp; hello@sebangku.id
               </p>
 
@@ -148,20 +148,20 @@ export default function VisitCafeSection() {
           {/* Right — Map + Cafe Photo */}
           <div className="flex flex-col gap-5">
             {/* Google Maps placeholder */}
-            <div className="relative rounded-3xl overflow-hidden shadow-2xl shadow-black/20 border-4 border-white/20 h-72 lg:h-80 bg-blue-800/50">
+            <div className="relative rounded-3xl overflow-hidden shadow-2xl shadow-blue-500/20 border border-white/10 h-72 lg:h-80 bg-slate-800/50">
               <div className="w-full h-full flex flex-col items-center justify-center gap-3">
-                <MapPin className="w-10 h-10 text-blue-200" />
-                <p className="text-blue-100 font-semibold text-sm">
+                <MapPin className="w-10 h-10 text-slate-400" />
+                <p className="text-slate-300 font-semibold text-sm">
                   Integrasi Google Maps
                 </p>
-                <p className="text-blue-200/70 text-xs text-center max-w-xs px-4">
+                <p className="text-slate-500 text-xs text-center max-w-xs px-4">
                   Ganti dengan iframe Google Maps aktual menggunakan
                   Maps Embed API atau kode embed dari Google Maps
                 </p>
                 <Link
                   href="https://maps.google.com"
                   target="_blank"
-                  className="mt-2 px-4 py-2 bg-white/20 hover:bg-white/30 text-white text-xs font-semibold rounded-xl transition-colors"
+                  className="mt-2 px-4 py-2 bg-white/5 border border-white/10 hover:bg-white/10 text-white text-xs font-semibold rounded-xl transition-colors"
                 >
                   Buka Google Maps →
                 </Link>
@@ -187,10 +187,10 @@ export default function VisitCafeSection() {
                 fill
                 className="object-cover"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-blue-900/60 to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#020617] to-transparent via-[#020617]/50" />
               <div className="absolute bottom-4 left-4 right-4">
                 <p className="text-white font-bold text-lg">Sebangku Cafe</p>
-                <p className="text-blue-200 text-sm">
+                <p className="text-slate-300 text-sm">
                   Ruang bermain yang nyaman & inspiratif
                 </p>
               </div>

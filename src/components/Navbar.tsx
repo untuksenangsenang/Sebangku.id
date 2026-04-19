@@ -2,15 +2,16 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import { Menu, X, BookOpen } from "lucide-react";
+import Image from "next/image";
+import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const navLinks = [
-  { label: "Beranda", href: "#beranda" },
-  { label: "Katalog", href: "#ekosistem" },
-  { label: "Cafe", href: "#kunjungi" },
-  { label: "Tentang Kami", href: "#expertise" },
-  { label: "Blog", href: "#blog" },
+  { label: "Tentang Kami", href: "#tentang-kami" },
+  { label: "Toko Game", href: "#toko-game" },
+  { label: "Layanan", href: "#layanan" },
+  { label: "Portfolio", href: "#portfolio" },
+  { label: "Kontak", href: "#kontak" },
 ];
 
 export default function Navbar() {
@@ -27,30 +28,34 @@ export default function Navbar() {
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         scrolled
-          ? "bg-white/95 backdrop-blur-md shadow-md border-b border-blue-50"
-          : "bg-white/80 backdrop-blur-sm"
+          ? "bg-[#020617]/95 backdrop-blur-lg shadow-lg shadow-blue-900/10 border-b border-white/10"
+          : "bg-[#020617]/50 backdrop-blur-md"
       }`}
     >
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 lg:h-18">
           {/* Logo */}
           <Link href="#beranda" className="flex items-center gap-2 group">
-            <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-blue-600 to-blue-700 flex items-center justify-center shadow-md group-hover:shadow-blue-300 transition-shadow duration-300">
-              <BookOpen className="w-5 h-5 text-white" />
-            </div>
+            <Image
+              src="/assets/logo.png"
+              alt="Sebangku Logo"
+              width={40}
+              height={40}
+              className="w-10 h-10 object-contain drop-shadow-[0_0_8px_rgba(59,130,246,0.5)] group-hover:scale-105 transition-transform duration-300"
+            />
             <span className="text-xl font-bold">
-              <span className="text-blue-600">Sebangku</span>
-              <span className="text-gray-800">.id</span>
+              <span className="text-blue-500">Sebangku</span>
+              <span className="text-white">.id</span>
             </span>
           </Link>
 
           {/* Desktop Nav */}
-          <ul className="hidden lg:flex items-center gap-1">
+          <ul className="hidden lg:flex items-center absolute left-1/2 -translate-x-1/2 gap-6">
             {navLinks.map((link) => (
               <li key={link.href}>
                 <Link
                   href={link.href}
-                  className="px-4 py-2 rounded-lg text-sm font-medium text-gray-600 hover:text-blue-600 hover:bg-blue-50 transition-all duration-200"
+                  className="text-sm font-medium text-slate-400 hover:text-white transition-colors"
                 >
                   {link.label}
                 </Link>
@@ -59,26 +64,22 @@ export default function Navbar() {
           </ul>
 
           {/* Desktop CTA */}
-          <div className="hidden lg:flex items-center gap-3">
+          <div className="hidden lg:flex items-center gap-6">
+            <Link href="#kontak" className="text-sm font-medium text-slate-400 hover:text-white transition-colors">
+              Hubungi Kami
+            </Link>
             <Button
-              variant="ghost"
-              className="text-blue-600 font-semibold hover:bg-blue-50 hover:text-blue-700"
+              className="bg-blue-500 hover:bg-blue-400 text-white font-medium shadow-none rounded-full px-6"
               asChild
             >
-              <Link href="#masuk">Masuk</Link>
-            </Button>
-            <Button
-              className="bg-blue-600 hover:bg-blue-700 text-white font-semibold shadow-md hover:shadow-blue-200 transition-all duration-200 rounded-xl px-5"
-              asChild
-            >
-              <Link href="#daftar">Daftar Gratis</Link>
+              <Link href="#mulai">Mulai Sekarang</Link>
             </Button>
           </div>
 
           {/* Mobile hamburger */}
           <button
             id="mobile-menu-btn"
-            className="lg:hidden p-2 rounded-xl text-gray-600 hover:bg-blue-50 hover:text-blue-600 transition-colors"
+            className="lg:hidden p-2 rounded-xl text-gray-300 hover:bg-white/10 hover:text-white transition-colors"
             onClick={() => setIsOpen(!isOpen)}
             aria-label="Toggle menu"
           >
@@ -92,13 +93,13 @@ export default function Navbar() {
             isOpen ? "max-h-96 pb-4" : "max-h-0"
           }`}
         >
-          <ul className="flex flex-col gap-1 pt-2 border-t border-gray-100">
+          <ul className="flex flex-col gap-1 pt-2 border-t border-white/10 p-4 lg:p-0">
             {navLinks.map((link) => (
               <li key={link.href}>
                 <Link
                   href={link.href}
                   onClick={() => setIsOpen(false)}
-                  className="block px-4 py-2.5 rounded-lg text-sm font-medium text-gray-600 hover:text-blue-600 hover:bg-blue-50 transition-all duration-200"
+                  className="block px-4 py-2.5 rounded-lg text-sm font-medium text-gray-300 hover:text-white hover:bg-white/10 transition-all duration-200"
                 >
                   {link.label}
                 </Link>

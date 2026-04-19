@@ -1,124 +1,156 @@
 import Image from "next/image";
-import { CheckCircle2, BookOpen, Users, Trophy, Lightbulb } from "lucide-react";
+import { CheckCircle2, Target, Eye, Lightbulb, Users, Globe, BookOpen } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 
-const specializations = [
+const coreValues = [
   {
-    icon: BookOpen,
-    title: "Kurikulum Berbasis Permainan",
-    desc: "Merancang modul pembelajaran yang terintegrasi dengan board game sesuai kurikulum nasional.",
-    color: "text-blue-600 bg-blue-50",
+    icon: Lightbulb,
+    title: "Inovatif",
+    desc: "Terus mengembangkan metodologi dan produk belajar yang relevan.",
+    color: "from-blue-500 to-indigo-600",
   },
   {
     icon: Users,
-    title: "Pelatihan Guru & Fasilitator",
-    desc: "Program sertifikasi untuk guru agar mampu memfasilitasi sesi Game-Based Learning secara efektif.",
-    color: "text-emerald-600 bg-emerald-50",
+    title: "Kolaboratif",
+    desc: "Membangun ekosistem bersama sekolah, guru, dan pakar.",
+    color: "from-emerald-500 to-teal-600",
   },
   {
-    icon: Lightbulb,
-    title: "Desain Pengalaman Bermain",
-    desc: "Merancang experience bermain yang menyenangkan sekaligus mengembangkan soft skills dan karakter.",
-    color: "text-amber-600 bg-amber-50",
+    icon: Globe,
+    title: "Berkelanjutan",
+    desc: "Menciptakan dampak jangka panjang bagi dunia pendidikan.",
+    color: "from-amber-500 to-orange-600",
   },
   {
-    icon: Trophy,
-    title: "Sistem Gamifikasi Sekolah",
-    desc: "Implementasi sistem poin, badge, dan leaderboard untuk meningkatkan motivasi belajar siswa.",
-    color: "text-purple-600 bg-purple-50",
+    icon: BookOpen,
+    title: "Edukatif",
+    desc: "Mengedepankan nilai pembelajaran dalam setiap produk.",
+    color: "from-purple-500 to-pink-600",
   },
-];
-
-const achievements = [
-  "Lebih dari 200 sesi workshop telah dilaksanakan",
-  "Berpengalaman dengan sekolah SD, SMP, SMA & universitas",
-  "Fasilitator bersertifikat internasional",
-  "Konten kurikulum disesuaikan standar Kemendikbud",
 ];
 
 export default function ExpertiseSection() {
   return (
     <section
-      id="expertise"
-      className="py-20 lg:py-28 bg-gradient-to-br from-gray-50 to-blue-50/30"
+      id="identitas"
+      className="py-20 lg:py-28 bg-[#020617] relative overflow-hidden"
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-          {/* Left — Workshop image */}
-          <div className="relative">
-            <div className="relative rounded-3xl overflow-hidden shadow-2xl shadow-blue-100/50">
-              <Image
-                src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?w=700&q=80&auto=format&fit=crop"
-                alt="Sesi workshop Game-Based Learning bersama guru dan fasilitator"
-                width={700}
-                height={520}
-                className="w-full h-[380px] lg:h-[480px] object-cover"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-blue-900/30 to-transparent" />
-            </div>
+      {/* Background decorations */}
+      <div className="absolute top-40 right-0 w-[500px] h-[500px] bg-blue-600/10 rounded-full blur-[120px] pointer-events-none" />
+      <div className="absolute bottom-20 left-0 w-[400px] h-[400px] bg-indigo-600/10 rounded-full blur-[100px] pointer-events-none" />
 
-            {/* Floating stat card */}
-            <div className="absolute -bottom-6 -right-4 lg:-right-8 bg-white rounded-2xl shadow-xl border border-blue-100 px-5 py-4">
-              <p className="text-3xl font-extrabold text-blue-600">200+</p>
-              <p className="text-sm text-gray-500 font-medium mt-0.5">
-                Sesi Workshop
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div className="flex flex-col gap-24">
+          
+          {/* Top Level: Identitas & Visi Misi */}
+          <div>
+            <div className="text-center mb-16">
+              <Badge className="bg-blue-900/40 text-blue-300 hover:bg-blue-900/50 border border-blue-500/30 rounded-full px-4 py-1.5 text-sm font-semibold mb-4">
+                Identitas Kami
+              </Badge>
+              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white leading-tight">
+                Identitas & Nilai{" "}
+                <span className="text-blue-500">Perusahaan</span>
+              </h2>
+              <p className="mt-4 text-slate-400 max-w-2xl mx-auto text-base sm:text-lg">
+                Sebangku.id tidak hanya sekedar portal pembelajaran, tapi sebuah gerakan untuk merevolusi cara belajar.
               </p>
-              <p className="text-xs text-gray-400">di seluruh Indonesia</p>
             </div>
 
-            {/* Decorative dots */}
-            <div className="absolute -top-4 -left-4 w-24 h-24 bg-blue-100 rounded-full opacity-60 -z-10" />
-            <div className="absolute top-1/3 -left-6 w-12 h-12 bg-indigo-200 rounded-full opacity-40 -z-10" />
+            <div className="grid lg:grid-cols-12 gap-12 lg:gap-16 items-start">
+              
+              {/* Left Column: Logo Representation */}
+              <div className="lg:col-span-5 relative flex justify-center items-center">
+                {/* Simulated Puzzle Logo using CSS */}
+                <div className="relative w-72 h-72 lg:w-96 lg:h-96 rounded-[3rem] bg-[#070d24] border border-white/10 shadow-2xl shadow-blue-900/20 flex flex-wrap p-8 gap-4 justify-center items-center">
+                   {/* Simplified visual representation of the colorful 'S' puzzle */}
+                   <div className="absolute inset-0 bg-gradient-to-br from-blue-600/10 to-purple-600/10 rounded-[3rem] pointer-events-none" />
+                   
+                   <div className="w-full h-full relative">
+                      <div className="absolute top-0 left-0 w-[45%] h-[45%] bg-teal-500 rounded-tl-[2rem] rounded-br-[1.5rem] shadow-lg shadow-teal-500/30 border border-white/10" />
+                      <div className="absolute top-0 right-0 w-[45%] h-[45%] bg-pink-500 rounded-tr-[2rem] rounded-bl-[1.5rem] shadow-lg shadow-pink-500/30 border border-white/10" />
+                      <div className="absolute bottom-0 left-0 w-[45%] h-[45%] bg-indigo-600 rounded-bl-[2rem] rounded-tr-[1.5rem] flex items-center justify-center shadow-lg shadow-indigo-600/30 border border-white/10 z-10" />
+                      <div className="absolute bottom-0 right-0 w-[45%] h-[45%] bg-yellow-500 rounded-br-[2rem] rounded-tl-[1.5rem] shadow-lg shadow-yellow-500/30 border border-white/10" />
+                      
+                      {/* Center overlapping piece to form 'S' shape feeling */}
+                      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[35%] h-[35%] bg-[#070d24] rounded-full z-20 flex items-center justify-center shadow-inner">
+                         <span className="text-4xl font-extrabold text-white">S</span>
+                      </div>
+                   </div>
+                </div>
+              </div>
+
+              {/* Right Column: Visi & Misi */}
+              <div className="lg:col-span-7 flex flex-col gap-6">
+                
+                {/* Description Card */}
+                <div className="bg-white/5 border border-white/10 backdrop-blur-md rounded-2xl p-6 lg:p-8 shadow-xl">
+                  <p className="text-slate-300 leading-relaxed text-base lg:text-lg">
+                    <strong className="text-white text-xl block mb-2">Sebangku merupakan...</strong>
+                    Ekosistem Game-Based Learning terintegrasi yang berfokus pada pengembangan produk edukatif, layanan pelatihan, dan pengalaman bermain yang menyenangkan. Kami bertujuan untuk menciptakan pembelajaran yang interaktif, menumbuhkan kreativitas, dan membangun kolaborasi di antara peserta didik dan tenaga pendidik.
+                  </p>
+                </div>
+
+                <div className="grid sm:grid-cols-2 gap-6">
+                  {/* Visi */}
+                  <div className="bg-gradient-to-br from-blue-900/20 to-[#020617] border border-blue-500/20 backdrop-blur-md rounded-2xl p-6 shadow-xl relative overflow-hidden group hover:border-blue-500/40 transition-colors">
+                    <div className="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
+                      <Eye className="w-16 h-16 text-blue-400" />
+                    </div>
+                    <div className="w-10 h-10 rounded-xl bg-blue-500/20 flex items-center justify-center mb-4 border border-blue-500/30">
+                      <Eye className="w-5 h-5 text-blue-400" />
+                    </div>
+                    <h3 className="text-xl font-bold text-white mb-2">Visi Kami</h3>
+                    <p className="text-sm text-slate-400 leading-relaxed">
+                      Menjadi pionir dan pemimpin dalam ekosistem pembelajaran berbasis permainan di Indonesia yang menginspirasi dan berdampak bagi generasi masa depan.
+                    </p>
+                  </div>
+
+                  {/* Misi */}
+                  <div className="bg-gradient-to-br from-purple-900/20 to-[#020617] border border-purple-500/20 backdrop-blur-md rounded-2xl p-6 shadow-xl relative overflow-hidden group hover:border-purple-500/40 transition-colors">
+                    <div className="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
+                      <Target className="w-16 h-16 text-purple-400" />
+                    </div>
+                    <div className="w-10 h-10 rounded-xl bg-purple-500/20 flex items-center justify-center mb-4 border border-purple-500/30">
+                      <Target className="w-5 h-5 text-purple-400" />
+                    </div>
+                    <h3 className="text-xl font-bold text-white mb-2">Misi Kami</h3>
+                    <p className="text-sm text-slate-400 leading-relaxed">
+                      Menyediakan media belajar yang inovatif, memfasilitasi peningkatan kualitas guru, dan membangun ruang kolaborasi kompilatif yang positif.
+                    </p>
+                  </div>
+                </div>
+
+              </div>
+            </div>
           </div>
 
-          {/* Right — Text content */}
-          <div className="flex flex-col gap-8">
-            <div>
-              <Badge className="bg-blue-100 text-blue-700 hover:bg-blue-100 border-0 rounded-full px-4 py-1.5 text-sm font-semibold mb-4">
-                🎓 Keahlian Kami
-              </Badge>
-              <h2 className="text-3xl sm:text-4xl font-extrabold text-gray-900 leading-tight">
-                Game-Based Learning{" "}
-                <span className="text-blue-600">Expertise</span>
-              </h2>
-              <p className="mt-4 text-gray-600 leading-relaxed text-base sm:text-lg">
-                Kami bukan sekadar toko board game. Sebangku.id adalah mitra
-                strategis institusi pendidikan dalam mengimplementasikan
-                metode pembelajaran berbasis permainan yang terukur dan
-                berdampak nyata.
-              </p>
+          {/* Bottom Level: Nilai Inti */}
+          <div>
+            <div className="text-center mb-12">
+              <h3 className="text-2xl sm:text-3xl font-bold text-white">
+                Nilai Inti <span className="text-blue-500">Kami</span>
+              </h3>
             </div>
 
-            {/* Specialization cards */}
-            <div className="grid sm:grid-cols-2 gap-4">
-              {specializations.map(({ icon: Icon, title, desc, color }) => (
+            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+              {coreValues.map(({ icon: Icon, title, desc, color }) => (
                 <div
                   key={title}
-                  className="bg-white rounded-2xl p-4 border border-gray-100 shadow-sm hover:shadow-md hover:border-blue-100 transition-all duration-300 group"
+                  className="bg-white/5 border border-white/10 backdrop-blur-md rounded-2xl p-6 hover:bg-white/10 hover:border-white/20 transition-all duration-300 group shadow-lg"
                 >
-                  <div
-                    className={`w-10 h-10 rounded-xl flex items-center justify-center mb-3 ${color}`}
-                  >
-                    <Icon className="w-5 h-5" />
+                  <div className={`w-12 h-12 rounded-xl bg-gradient-to-br ${color} flex items-center justify-center mb-4 shadow-lg group-hover:scale-110 transition-transform`}>
+                    <Icon className="w-6 h-6 text-white" />
                   </div>
-                  <h3 className="font-bold text-gray-900 text-sm mb-1 group-hover:text-blue-700 transition-colors">
+                  <h4 className="font-bold text-white text-lg mb-2 group-hover:text-blue-400 transition-colors">
                     {title}
-                  </h3>
-                  <p className="text-xs text-gray-500 leading-relaxed">{desc}</p>
-                </div>
-              ))}
-            </div>
-
-            {/* Achievements */}
-            <div className="flex flex-col gap-3">
-              {achievements.map((item) => (
-                <div key={item} className="flex items-start gap-3">
-                  <CheckCircle2 className="w-5 h-5 text-blue-500 flex-shrink-0 mt-0.5" />
-                  <span className="text-sm text-gray-700">{item}</span>
+                  </h4>
+                  <p className="text-sm text-slate-400 leading-relaxed">{desc}</p>
                 </div>
               ))}
             </div>
           </div>
+
         </div>
       </div>
     </section>

@@ -68,9 +68,9 @@ export default function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="bg-gray-950 text-white">
+    <footer className="bg-[#020617] text-white border-t border-white/5">
       {/* Newsletter strip */}
-      <div className="bg-gradient-to-r from-blue-600 to-indigo-700 py-10">
+      <div className="relative py-10 border-b border-white/5 before:absolute before:inset-0 before:bg-gradient-to-r before:from-blue-600/10 before:to-indigo-600/10 before:pointer-events-none">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col md:flex-row items-center justify-between gap-6">
             <div>
@@ -89,11 +89,11 @@ export default function Footer() {
                 id="newsletter-email"
                 type="email"
                 placeholder="email@kamu.com"
-                className="flex-1 md:w-64 px-4 py-2.5 rounded-xl text-gray-900 text-sm font-medium focus:outline-none focus:ring-2 focus:ring-white/50 bg-white"
+                className="flex-1 md:w-64 px-4 py-2.5 rounded-xl text-white text-sm font-medium focus:outline-none focus:ring-2 focus:ring-blue-500/50 bg-white/5 border border-white/10 placeholder:text-slate-500"
               />
               <button
                 type="submit"
-                className="px-5 py-2.5 bg-white text-blue-700 font-bold rounded-xl flex items-center gap-1.5 hover:bg-blue-50 transition-colors text-sm whitespace-nowrap"
+                className="px-5 py-2.5 bg-blue-600 hover:bg-blue-500 text-white font-bold rounded-xl flex items-center gap-1.5 transition-colors text-sm whitespace-nowrap shadow-lg shadow-blue-500/20 border border-blue-500/50 relative z-10"
               >
                 Langganan
                 <ArrowRight className="w-4 h-4" />
@@ -119,7 +119,7 @@ export default function Footer() {
               </span>
             </Link>
 
-            <p className="text-gray-400 text-sm leading-relaxed max-w-xs">
+            <p className="text-slate-400 text-sm leading-relaxed max-w-xs">
               Ekosistem Game-Based Learning terdepan di Indonesia. Kami
               menghadirkan board game edukatif, pelatihan fasilitator, dan
               ruang belajar yang menyenangkan untuk semua usia.
@@ -129,17 +129,17 @@ export default function Footer() {
             <div className="flex flex-col gap-2.5">
               <div className="flex items-start gap-2.5">
                 <MapPin className="w-4 h-4 text-blue-400 flex-shrink-0 mt-0.5" />
-                <span className="text-gray-400 text-sm">
+                <span className="text-slate-400 text-sm">
                   Jl. Prof. Dr. Soepomo No. 24, Yogyakarta 55164
                 </span>
               </div>
               <div className="flex items-center gap-2.5">
                 <Phone className="w-4 h-4 text-blue-400 flex-shrink-0" />
-                <span className="text-gray-400 text-sm">+62 812-3456-7890</span>
+                <span className="text-slate-400 text-sm">+62 812-3456-7890</span>
               </div>
               <div className="flex items-center gap-2.5">
                 <Mail className="w-4 h-4 text-blue-400 flex-shrink-0" />
-                <span className="text-gray-400 text-sm">hello@sebangku.id</span>
+                <span className="text-slate-400 text-sm">hello@sebangku.id</span>
               </div>
             </div>
 
@@ -151,9 +151,9 @@ export default function Footer() {
                   href={href}
                   target="_blank"
                   aria-label={label}
-                  className={`w-9 h-9 rounded-xl bg-gray-800 flex items-center justify-center ${color} transition-colors duration-200 group`}
+                  className={`w-9 h-9 rounded-xl bg-white/5 flex items-center justify-center border border-white/10 ${color} transition-colors duration-200 group`}
                 >
-                  <Icon className="w-4 h-4 text-gray-400 group-hover:text-white transition-colors" />
+                  <Icon className="w-4 h-4 text-slate-400 group-hover:text-white transition-colors" />
                 </Link>
               ))}
             </div>
@@ -169,7 +169,7 @@ export default function Footer() {
                 <li key={link.label}>
                   <Link
                     href={link.href}
-                    className="text-gray-400 text-sm hover:text-blue-400 transition-colors"
+                    className="text-slate-400 text-sm hover:text-blue-400 transition-colors"
                   >
                     {link.label}
                   </Link>
@@ -187,7 +187,7 @@ export default function Footer() {
                 <li key={link.label}>
                   <Link
                     href={link.href}
-                    className="text-gray-400 text-sm hover:text-blue-400 transition-colors"
+                    className="text-slate-400 text-sm hover:text-blue-400 transition-colors"
                   >
                     {link.label}
                   </Link>
@@ -205,7 +205,7 @@ export default function Footer() {
                 <li key={link.label}>
                   <Link
                     href={link.href}
-                    className="text-gray-400 text-sm hover:text-blue-400 transition-colors"
+                    className="text-slate-400 text-sm hover:text-blue-400 transition-colors"
                   >
                     {link.label}
                   </Link>
@@ -217,11 +217,11 @@ export default function Footer() {
       </div>
 
       {/* Bottom bar */}
-      <div className="border-t border-gray-800">
+      <div className="border-t border-white/5">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-5">
           <div className="flex flex-col sm:flex-row items-center justify-between gap-3">
-            <p className="text-gray-500 text-xs text-center sm:text-left">
-              © {currentYear} <strong className="text-gray-400">PT Sebangku Digital Nusantara</strong>. Hak Cipta Dilindungi.
+            <p className="text-slate-500 text-xs text-center sm:text-left">
+              © {currentYear} <strong className="text-slate-400">PT Sebangku Digital Nusantara</strong>. Hak Cipta Dilindungi.
             </p>
             <div className="flex items-center gap-4">
               {["Kebijakan Privasi", "Syarat & Ketentuan", "Cookie Policy"].map(
@@ -229,7 +229,7 @@ export default function Footer() {
                   <Link
                     key={item}
                     href="#"
-                    className="text-gray-500 text-xs hover:text-blue-400 transition-colors"
+                    className="text-slate-500 text-xs hover:text-blue-400 transition-colors"
                   >
                     {item}
                   </Link>

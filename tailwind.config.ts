@@ -30,7 +30,8 @@ const config: Config = {
         sm: "calc(var(--radius) - 4px)",
       },
       fontFamily: {
-        sans: ["var(--font-inter)", "ui-sans-serif", "system-ui", "sans-serif"],
+        sans: ["var(--font-poppins)", "ui-sans-serif", "system-ui", "sans-serif"],
+        poppins: ["var(--font-poppins)", "sans-serif"],
       },
       animation: {
         marquee: "marquee 25s linear infinite",

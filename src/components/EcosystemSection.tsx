@@ -1,172 +1,142 @@
 import Image from "next/image";
 import Link from "next/link";
-import { ShoppingBag, Coffee, Award, ArrowRight, Check } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { Copy, BookOpen, Laptop, Users, Microchip, Clock } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 
-const pillars = [
+const additionalFeatures = [
   {
-    id: "toko",
-    icon: ShoppingBag,
-    color: "from-blue-500 to-blue-700",
-    badgeColor: "bg-blue-100 text-blue-700",
-    accent: "border-blue-200 hover:border-blue-400",
-    shadow: "hover:shadow-blue-100",
-    title: "Toko Boardgame",
-    subtitle: "Katalog Media Belajar",
-    description:
-      "Temukan lebih dari 100+ board game edukatif yang dikurasi untuk berbagai usia dan mata pelajaran. Dari STEM, bahasa, hingga pengembangan karakter.",
-    image:
-      "https://images.unsplash.com/photo-1606503153255-59d5b6ca1a8e?w=500&q=80&auto=format&fit=crop",
-    imageAlt: "Koleksi board game edukatif di Toko Sebangku",
-    features: [
-      "Kategorisasi usia 4–17 tahun",
-      "Filter berdasarkan mata pelajaran",
-      "Panduan facilitator inklusif",
-    ],
-    cta: "Lihat Katalog",
-    href: "#katalog",
+    title: "Board Game Edukasi",
+    desc: "Lebih dari 100+ koleksi board game edukatif untuk berbagai mata pelajaran dan jenjang pendidikan.",
+    icon: Copy,
+    color: "text-blue-400 bg-blue-500/10 border-blue-500/20",
   },
   {
-    id: "cafe",
-    icon: Coffee,
-    color: "from-emerald-500 to-teal-600",
-    badgeColor: "bg-emerald-100 text-emerald-700",
-    accent: "border-emerald-200 hover:border-emerald-400",
-    shadow: "hover:shadow-emerald-100",
-    title: "Sebangku Cafe",
-    subtitle: "Pengalaman Bermain Langsung",
-    description:
-      "Rasakan pengalaman bermain board game yang dipandu Game Master profesional. Ruang nyaman untuk keluarga, komunitas, dan tim kerja.",
-    image:
-      "https://images.unsplash.com/photo-1521017432531-fbd92d768814?w=500&q=80&auto=format&fit=crop",
-    imageAlt: "Suasana Sebangku Cafe yang nyaman untuk bermain board game",
-    features: [
-      "Game Master berpengalaman",
-      "50+ judul tersedia di cafe",
-      "Paket grup & privat tersedia",
-    ],
-    cta: "Reservasi Sekarang",
-    href: "#kunjungi",
+    title: "Pelatihan Guru",
+    desc: "Program sertifikasi untuk pendidik agar mampu memfasilitasi sesi bermain yang efektif.",
+    icon: BookOpen,
+    color: "text-indigo-400 bg-indigo-500/10 border-indigo-500/20",
   },
   {
-    id: "loyalty",
-    icon: Award,
-    color: "from-amber-400 to-orange-500",
-    badgeColor: "bg-amber-100 text-amber-700",
-    accent: "border-amber-200 hover:border-amber-400",
-    shadow: "hover:shadow-amber-100",
-    title: "Loyalty & Point",
-    subtitle: "Sistem XP, Badges & Leaderboard",
-    description:
-      "Setiap pembelian, reservasi, dan aktivitas belajar menghasilkan XP. Kumpulkan badge eksklusif dan bersaing di leaderboard komunitas Sebangku.",
-    image:
-      "https://images.unsplash.com/photo-1614680376573-df3480f0c6ff?w=500&q=80&auto=format&fit=crop",
-    imageAlt: "Sistem loyalitas XP, badge, dan leaderboard Sebangku",
-    features: [
-      "Sistem XP & level member",
-      "Badge koleksi eksklusif",
-      "Diskon & reward spesial",
-    ],
-    cta: "Ikuti Sekarang",
-    href: "#loyalty",
+    title: "Platform Digital",
+    desc: "Sistem manajemen pembelajaran berbasis gamifikasi untuk melacak progres siswa.",
+    icon: Laptop,
+    color: "text-teal-400 bg-teal-500/10 border-teal-500/20",
   },
+  {
+    title: "Komunitas Aktif",
+    desc: "Forum diskusi dan leaderboard yang menghubungkan ribuan guru dan siswa di seluruh Indonesia.",
+    icon: Users,
+    color: "text-purple-400 bg-purple-500/10 border-purple-500/20",
+  },
+  {
+    title: "Pusat Riset & Event",
+    desc: "Kolaborasi bersama pakar untuk menciptakan modul terbaru dan event berskala nasional.",
+    icon: Microchip,
+    color: "text-rose-400 bg-rose-500/10 border-rose-500/20",
+  },
+  {
+    title: "Rencana Masa Depan",
+    desc: "Pengembangan VR/AR untuk pengalaman belajar imersif dan berkelanjutan.",
+    icon: Clock,
+    color: "text-amber-400 bg-amber-500/10 border-amber-500/20",
+  },
+];
+
+const pillarsProgress = [
+  { label: "Materi Pembelajaran", value: 95 },
+  { label: "Pelatihan Fasilitator", value: 88 },
+  { label: "Pengalaman Bermain", value: 92 },
 ];
 
 export default function EcosystemSection() {
   return (
-    <section id="ekosistem" className="py-20 lg:py-28 bg-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Header */}
-        <div className="text-center mb-14">
-          <Badge className="bg-blue-100 text-blue-700 hover:bg-blue-100 border-0 rounded-full px-4 py-1.5 text-sm font-semibold mb-4">
-            🌐 Ekosistem Kami
+    <section id="ekosistem" className="py-20 lg:py-28 bg-[#020617] relative overflow-hidden">
+      {/* Background decorations */}
+      <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-blue-900/10 rounded-full blur-[150px] pointer-events-none" />
+      <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-purple-900/10 rounded-full blur-[150px] pointer-events-none" />
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        
+        {/* Header Topic */}
+        <div className="text-center mb-16">
+          <Badge className="bg-blue-900/40 text-blue-300 hover:bg-blue-900/50 border border-blue-500/30 rounded-full px-4 py-1.5 text-sm font-semibold mb-4">
+            Ekosistem Kami
           </Badge>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-gray-900 leading-tight">
-            Ekosistem{" "}
-            <span className="text-blue-600">Sebangku</span>
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white leading-tight">
+            Ekosistem Game-Based <span className="text-blue-500">Learning</span>
           </h2>
-          <p className="mt-4 text-gray-500 max-w-2xl mx-auto text-base sm:text-lg leading-relaxed">
-            Tiga pilar utama yang saling bersinergi untuk menciptakan pengalaman
-            belajar berbasis permainan yang menyeluruh, menyenangkan, dan
-            berdampak.
+          <p className="mt-4 text-slate-400 max-w-2xl mx-auto text-base sm:text-lg">
+            Satu kesatuan ekosistem yang dirancang untuk mendukung inovasi dan kualitas dalam dunia pendidikan secara menyeluruh.
           </p>
         </div>
 
-        {/* Cards Grid */}
-        <div className="grid md:grid-cols-3 gap-6 lg:gap-8">
-          {pillars.map((pillar) => {
-            const Icon = pillar.icon;
-            return (
-              <div
-                key={pillar.id}
-                className={`group relative flex flex-col rounded-3xl border-2 bg-white overflow-hidden shadow-md ${pillar.shadow} ${pillar.accent} hover:shadow-xl transition-all duration-300 hover:-translate-y-1`}
-              >
-                {/* Image */}
-                <div className="relative h-48 overflow-hidden">
-                  <Image
-                    src={pillar.image}
-                    alt={pillar.imageAlt}
-                    fill
-                    className="object-cover group-hover:scale-105 transition-transform duration-500"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
-                  {/* Icon badge */}
-                  <div
-                    className={`absolute top-4 left-4 w-11 h-11 rounded-2xl bg-gradient-to-br ${pillar.color} flex items-center justify-center shadow-lg`}
-                  >
-                    <Icon className="w-6 h-6 text-white" />
+        {/* Top Split Content */}
+        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center mb-20">
+          {/* Left - Image */}
+          <div className="relative">
+            <div className="relative rounded-3xl overflow-hidden shadow-2xl shadow-blue-500/20 border border-white/10">
+              <Image
+                src="https://images.unsplash.com/photo-1596461404969-9ae70f2830c1?w=700&q=80&auto=format&fit=crop" 
+                alt="Game Based Learning Ecosystem"
+                width={700}
+                height={500}
+                className="w-full h-80 lg:h-[450px] object-cover mix-blend-luminosity opacity-80 hover:mix-blend-normal hover:opacity-100 transition-all duration-500"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#020617] via-transparent to-transparent" />
+              <div className="absolute inset-0 bg-blue-900/20 mix-blend-overlay" />
+            </div>
+            {/* Glowing borders */}
+            <div className="absolute -inset-0.5 bg-gradient-to-br from-blue-500 to-purple-600 rounded-3xl blur opacity-30 -z-10" />
+          </div>
+
+          {/* Right - Content & Progress Bars */}
+          <div className="flex flex-col gap-6">
+            <h3 className="text-2xl sm:text-3xl font-bold text-white mb-2">Tiga Pilar Utama Sebangku</h3>
+            <p className="text-slate-400 leading-relaxed mb-4">
+              Setiap bagian dari ekosistem kami dirancang untuk mendukung inovasi dan kualitas dalam dunia pendidikan. Kami memastikan setiap pilar saling terhubung dan memberikan dampak nyata.
+            </p>
+
+            <div className="flex flex-col gap-5">
+              {pillarsProgress.map((pillar) => (
+                <div key={pillar.label} className="flex flex-col gap-2">
+                  <div className="flex justify-between items-center text-sm font-semibold">
+                    <span className="text-slate-300">{pillar.label}</span>
+                    <span className="text-blue-400">{pillar.value}%</span>
+                  </div>
+                  <div className="w-full bg-slate-800 rounded-full h-2.5 overflow-hidden border border-white/5">
+                    <div 
+                      className="bg-gradient-to-r from-blue-500 to-indigo-500 h-2.5 rounded-full shadow-[0_0_10px_rgba(59,130,246,0.8)]"
+                      style={{ width: `${pillar.value}%` }}
+                    />
                   </div>
                 </div>
+              ))}
+            </div>
 
-                {/* Content */}
-                <div className="flex flex-col flex-1 p-6 gap-4">
-                  <div>
-                    <span
-                      className={`text-xs font-semibold px-2.5 py-1 rounded-full ${pillar.badgeColor}`}
-                    >
-                      {pillar.subtitle}
-                    </span>
-                    <h3 className="mt-2 text-xl font-extrabold text-gray-900">
-                      {pillar.title}
-                    </h3>
-                    <p className="mt-2 text-sm text-gray-500 leading-relaxed">
-                      {pillar.description}
-                    </p>
-                  </div>
-
-                  {/* Features */}
-                  <ul className="flex flex-col gap-1.5">
-                    {pillar.features.map((feat) => (
-                      <li
-                        key={feat}
-                        className="flex items-center gap-2 text-sm text-gray-700"
-                      >
-                        <Check className="w-4 h-4 text-blue-500 flex-shrink-0" />
-                        {feat}
-                      </li>
-                    ))}
-                  </ul>
-
-                  {/* CTA */}
-                  <div className="mt-auto pt-2">
-                    <Button
-                      id={`ecosystem-cta-${pillar.id}`}
-                      variant="outline"
-                      className={`w-full font-bold gap-2 group/btn rounded-xl border-2 ${pillar.accent} transition-all duration-200`}
-                      asChild
-                    >
-                      <Link href={pillar.href}>
-                        {pillar.cta}
-                        <ArrowRight className="w-4 h-4 group-hover/btn:translate-x-1 transition-transform" />
-                      </Link>
-                    </Button>
-                  </div>
-                </div>
-              </div>
-            );
-          })}
+            <div className="mt-4">
+              <Link href="#katalog" className="inline-flex items-center gap-2 px-6 py-3 bg-blue-600/20 text-blue-400 font-semibold rounded-xl border border-blue-500/30 hover:bg-blue-600/30 transition-colors">
+                Pelajari Lebih Lanjut
+              </Link>
+            </div>
+          </div>
         </div>
+
+        {/* Bottom Grid Cards */}
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {additionalFeatures.map((item) => (
+            <div 
+              key={item.title}
+              className="bg-white/5 border border-white/10 backdrop-blur-md rounded-2xl p-6 hover:bg-white/10 hover:border-white/20 transition-all duration-300 group shadow-lg"
+            >
+              <div className={`w-12 h-12 rounded-xl flex items-center justify-center mb-5 border ${item.color}`}>
+                <item.icon className="w-6 h-6" />
+              </div>
+              <h4 className="text-xl font-bold text-white mb-3 group-hover:text-blue-400 transition-colors">{item.title}</h4>
+              <p className="text-sm text-slate-400 leading-relaxed">{item.desc}</p>
+            </div>
+          ))}
+        </div>
+
       </div>
     </section>
   );
