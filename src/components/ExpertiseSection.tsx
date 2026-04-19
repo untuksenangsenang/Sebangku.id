@@ -1,5 +1,5 @@
-import Image from "next/image";
-import { CheckCircle2, Target, Eye, Lightbulb, Users, Globe, BookOpen } from "lucide-react";
+
+import { Target, Eye, Lightbulb, Users, Globe, BookOpen } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 
 const coreValues = [
