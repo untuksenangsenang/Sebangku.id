@@ -44,8 +44,7 @@ export default function Navbar() {
               className="w-10 h-10 object-contain drop-shadow-[0_0_8px_rgba(59,130,246,0.5)] group-hover:scale-105 transition-transform duration-300"
             />
             <span className="text-xl font-bold">
-              <span className="text-blue-500">Sebangku</span>
-              <span className="text-white">.id</span>
+              <span className="text-white">Sebangku.id</span>
             </span>
           </Link>
 
