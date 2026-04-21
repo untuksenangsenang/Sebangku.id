@@ -100,9 +100,33 @@
   from { opacity: 0; transform: translateY(28px); }
   to   { opacity: 1; transform: translateY(0); }
 }
+@keyframes floatVR {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(45px);
+  }
+}
+@keyframes iconBounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+}
+
+.animate-icon {
+  animation: iconBounce 2s ease-in-out infinite;
+}
+
+.animate-vr {
+  animation: floatVR 5s ease-in-out infinite;
+}
 
 .animate-marquee {
-  animation: marquee 28s linear infinite;
+  animation: marquee 25s linear infinite;
 }
 .animate-marquee:hover {
   animation-play-state: paused;

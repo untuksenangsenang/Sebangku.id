@@ -8,20 +8,25 @@ export default function HeroSection() {
   return (
     <section className="relative min-h-screen flex items-center justify-center bg-[#020617] overflow-visible">
 
-      {/* BACKGROUND */}
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(37,99,235,0.2),transparent_60%)]" />
+      {/* ================= BACKGROUND BASE ================= */}
+      <div className="absolute inset-0 z-0">
+        
+        {/* radial glow */}
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(37,99,235,0.15),transparent_70%)]" />
+        
+        {/* left gradient wash */}
+        <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(59,130,246,0.15),transparent_40%)]" />
 
-      <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(59,130,246,0.2),transparent_40%)]" />
-
-      {/* Grid */}
-      <div
-        className="absolute inset-0 opacity-10"
-        style={{
-          backgroundImage:
-            "linear-gradient(to right, #4f4f4f 1px, transparent 1px)",
-          backgroundSize: "120px 100%",
-        }}
-      />
+        {/* grid */}
+        <div
+          className="absolute inset-0 opacity-10"
+          style={{
+            backgroundImage:
+              "linear-gradient(to right, #4f4f4f 1px, transparent 1px)",
+            backgroundSize: "120px 100%",
+          }}
+        />
+      </div>
 
       {/* CONTENT */}
       <div className="relative z-10 max-w-6xl mx-auto px-6 text-center">
@@ -37,7 +42,7 @@ export default function HeroSection() {
         </div>
 
         {/* Title */}
-        <h1 className="text-[clamp(2.5rem,6vw,4.5rem)] font-extrabold leading-[1.1] tracking-tight text-white max-w-5xl mx-auto mb-6">
+        <h1 className="text-[clamp(4.5rem,8vw,4.5rem)] font-extrabold leading-[1.1] tracking-tight text-white max-w-6xl mx-auto mb-4">
           Transformasi{" "}
           <span className="bg-gradient-to-r from-blue-400 to-blue-600 bg-clip-text text-transparent">
             Edukasi
@@ -47,7 +52,7 @@ export default function HeroSection() {
             Permainan
           </span>
 
-          <span className="inline-flex items-center ml-3 align-middle">
+          <span className="inline-flex items-center ml-3 align-middle animate-icon">
             <div className="w-10 h-10 bg-white rounded-full flex items-center justify-center shadow-lg">
               <Gamepad2 className="w-5 h-5 text-black" />
             </div>
@@ -81,8 +86,20 @@ export default function HeroSection() {
         </div>
       </div>
 
+      {/* ================= TOP LEFT GRADIENT IMAGE ================= */}
+      <div className="absolute top-0 left-0 w-[400px] md:w-[450px] pointer-events-none z-[1]">
+        <Image
+          src="/assets/topgradient.png"
+          alt="gradient"
+          width={800}
+          height={800}
+          className="w-full h-auto object-contain opacity-90 mix-blend-screen blur-sm"
+          priority
+        />
+      </div>
+
       {/* LEFT IMAGE */}
-      <div className="absolute left-0 bottom-0 w-72 md:w-[420px] opacity-80 pointer-events-none">
+      <div className="absolute left-0 bottom-0 w-72 md:w-[420px] pointer-events-none animate-vr">
         <Image
           src="/assets/vrasset.png"
           alt="VR"
@@ -92,16 +109,25 @@ export default function HeroSection() {
         />
       </div>
 
+      {/* GRADIENT (HARUS DI ATAS ROCKET) */}
+<div className="absolute bottom-0 left-1/2 translate-x-[20%] w-[700px] md:w-[1000px] z-[3]">
+  <img
+    src="/assets/gradient.png"
+    alt="gradient bottom"
+    className="w-full h-auto object-contain opacity-100 mix-blend-screen"
+  />
+</div>
+
       {/* RIGHT IMAGE */}
-      <div className="absolute right-0 bottom-0 w-72 md:w-[420px] opacity-90 pointer-events-none">
-        <Image
-          src="/assets/rocket.png"
-          alt="Rocket"
-          width={500}
-          height={500}
-          className="w-full h-auto object-contain"
-        />
-      </div>
+      <div className="absolute right-[-200px] bottom-[-150px] w-72 md:w-[720px] pointer-events-none z-[2] animate-vr">
+  <Image
+    src="/assets/rocket.png"
+    alt="Rocket"
+    width={500}
+    height={500}
+    className="w-full h-auto object-contain"
+  />
+</div>
 
     </section>
   );
