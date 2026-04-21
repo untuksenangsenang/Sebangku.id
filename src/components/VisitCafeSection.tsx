@@ -5,7 +5,6 @@ import Link from "next/link";
 import {
   MapPin,
   Clock,
-  Phone,
   MessageCircle,
   Calendar,
   Navigation,
@@ -78,7 +77,7 @@ export default function VisitCafeSection() {
                   <Link
                     href="https://maps.google.com"
                     target="_blank"
-                    className="inline-flex items-center gap-1.5 mt-2 text-sm text-blue-400 hover:text-blue-300"
+                    rel="noopener noreferrer"
                   >
                     <Navigation className="w-3.5 h-3.5" />
                     Buka di Google Maps
