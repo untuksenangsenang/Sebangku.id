@@ -15,8 +15,6 @@ export default function HeroSection() {
         <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(59,130,246,0.15),transparent_40%)]" />
       </div>
 
-      {/* Grid */} <div className="absolute inset-0 opacity-10" style={{ backgroundImage: "linear-gradient(to right, #4f4f4f 1px, transparent 1px)", backgroundSize: "120px 100%", }} />
-
       {/* CONTENT */}
       <MotionContainer className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 text-center">
 
@@ -44,6 +42,7 @@ export default function HeroSection() {
               Permainan
             </span>
 
+            {/* ICON */}
             <span className="inline-flex items-center ml-2 sm:ml-3 align-middle">
               <div className="w-8 h-8 sm:w-10 sm:h-10 bg-white rounded-full flex items-center justify-center shadow-lg">
                 <Gamepad2 className="w-4 h-4 sm:w-5 sm:h-5 text-black" />
@@ -98,30 +97,14 @@ export default function HeroSection() {
       </Float>
 
       {/* FLOATING ROCKET */}
-      <Float
-        className="
-          absolute 
-
-          right-[-120px] bottom-[-30px]   /* MOBILE: lebih ke pojok */
-          sm:right-[-80px] sm:bottom-[-120px]
-          md:right-[-220px] md:bottom-[-180px]
-
-          w-[90vw] sm:w-[55vw] md:w-[900px]
-          max-w-[1000px]
-
-          z-[1] pointer-events-none
-        "
-      >
-        <div className="relative w-full aspect-[4/3]">
-          <Image
-            src="/assets/rocket.png"
-            alt="Rocket"
-            fill
-            sizes="(max-width: 640px) 90vw, (max-width: 1024px) 55vw, 900px"
-            className="object-contain scale-110 sm:scale-125 md:scale-150 drop-shadow-[0_30px_80px_rgba(59,130,246,0.45)]"
-            loading="eager"
-          />
-        </div>
+      <Float className="absolute right-[-120px] sm:right-[-80px] md:right-[-200px] bottom-[-80px] sm:bottom-[-100px] md:bottom-[-150px] w-[220px] sm:w-[350px] md:w-[720px] pointer-events-none z-[2]">
+        <Image
+          src="/assets/gradient.png"
+          alt="gradient bottom"
+          width={1000}
+          height={500}
+          className="w-full h-auto object-contain opacity-100 mix-blend-screen"
+        />
       </Float>
 
       {/* GRADIENT */}
