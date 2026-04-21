@@ -62,7 +62,7 @@ export default function ExpertiseSection() {
               {/* Left Column: Logo Representation */}
               <div className="lg:col-span-5 relative flex justify-center items-center">
                 {/* Simulated Puzzle Logo using CSS */}
-                <div className="relative w-72 h-72 lg:w-96 lg:h-96 rounded-[3rem] bg-[#070d24] border border-white/10 shadow-2xl shadow-blue-900/20 flex flex-wrap p-8 gap-4 justify-center items-center">
+                <div className="relative w-64 h-64 sm:w-72 sm:h-72 lg:w-96 lg:h-96 rounded-[3rem] bg-[#070d24] border border-white/10 shadow-2xl shadow-blue-900/20 flex flex-wrap p-5 sm:p-8 gap-4 justify-center items-center">
                    {/* Simplified visual representation of the colorful 'S' puzzle */}
                    <div className="absolute inset-0 bg-gradient-to-br from-blue-600/10 to-purple-600/10 rounded-[3rem] pointer-events-none" />
                    

@@ -1,7 +1,8 @@
 import type { Metadata, Viewport } from "next";
 import { Poppins } from "next/font/google";
+import "../../node_modules/tw-animate-css/dist/tw-animate.css";
+import "../../node_modules/shadcn/dist/tailwind.css";
 import "./globals.css";
-
 const poppins = Poppins({
   weight: ["300", "400", "500", "600", "700", "800", "900"],
   subsets: ["latin"],
@@ -77,7 +78,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="id" className={poppins.variable}>
-      <body className="min-h-screen bg-[#020617] text-white font-poppins">
+      <body className="min-h-screen bg-[#020617] text-white font-poppins overflow-x-hidden">
         {children}
       </body>
     </html>
