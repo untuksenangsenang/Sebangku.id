@@ -7,13 +7,18 @@ import { MotionContainer, MotionDiv, Float } from "@/lib/animation/motion";
 
 export default function HeroSection() {
   return (
-    <section className="relative min-h-screen flex items-center justify-center bg-[#020617] overflow-hidden">
+    <section className="relative min-h-screen flex items-center justify-center bg-[#020B2D] overflow-hidden">
 
       {/* BACKGROUND */}
       <div className="absolute inset-0 z-0">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(37,99,235,0.15),transparent_70%)]" />
         <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(59,130,246,0.15),transparent_40%)]" />
+
+        {/* grid */}
+        <div className="absolute inset-0 opacity-10" style={{ backgroundImage: "linear-gradient(to right, #4f4f4f 1px, transparent 1px)", backgroundSize: "120px 100%", }} />
       </div>
+
+      
 
       {/* CONTENT */}
       <MotionContainer className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 text-center">
@@ -99,7 +104,7 @@ export default function HeroSection() {
       {/* FLOATING ROCKET */}
       <Float className="absolute right-[-120px] sm:right-[-80px] md:right-[-200px] bottom-[-80px] sm:bottom-[-100px] md:bottom-[-150px] w-[220px] sm:w-[350px] md:w-[720px] pointer-events-none z-[2]">
         <Image
-          src="/assets/gradient.png"
+          src="/assets/rocket.png"
           alt="gradient bottom"
           width={1000}
           height={500}

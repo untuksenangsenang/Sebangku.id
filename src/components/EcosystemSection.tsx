@@ -5,38 +5,38 @@ import { Badge } from "@/components/ui/badge";
 
 const additionalFeatures = [
   {
-    title: "Board Game Edukasi",
-    desc: "Lebih dari 100+ koleksi board game edukatif untuk berbagai mata pelajaran dan jenjang pendidikan.",
+    title: "Kurikulum Berbasis Boardgame",
+    desc: "Integrasi permainan ke dalam pembelajaran untuk mengasah logika, literasi, dan keterampilan sosial anak tanpa merasa digurui.",
     icon: Copy,
     color: "text-blue-400 bg-blue-500/10 border-blue-500/20",
   },
   {
-    title: "Pelatihan Guru",
-    desc: "Program sertifikasi untuk pendidik agar mampu memfasilitasi sesi bermain yang efektif.",
+    title: "Workshop & Pelatihan Guru",
+    desc: "Memberdayakan fasilitator dan pendidik sekolah untuk menerapkan metode game-based learning secara efektif di dalam kelas.",
     icon: BookOpen,
     color: "text-indigo-400 bg-indigo-500/10 border-indigo-500/20",
   },
   {
-    title: "Platform Digital",
-    desc: "Sistem manajemen pembelajaran berbasis gamifikasi untuk melacak progres siswa.",
+    title: "Konsultasi Kurikulum",
+    desc: "Pendampingan penuh dalam merancang dan mengintegrasikan game-based learning ke dalam program belajar sekolah atau lembaga.",
     icon: Laptop,
     color: "text-teal-400 bg-teal-500/10 border-teal-500/20",
   },
   {
-    title: "Komunitas Aktif",
-    desc: "Forum diskusi dan leaderboard yang menghubungkan ribuan guru dan siswa di seluruh Indonesia.",
+    title: "Penyedia Media Edugame",
+    desc: "Katalog ratusan board game edukatif yang dikurasi oleh para ahli pendidikan, tersedia untuk dibeli atau disewa oleh sekolah.",
     icon: Users,
     color: "text-purple-400 bg-purple-500/10 border-purple-500/20",
   },
   {
-    title: "Pusat Riset & Event",
-    desc: "Kolaborasi bersama pakar untuk menciptakan modul terbaru dan event berskala nasional.",
+    title: "Monitoring & Evaluasi",
+    desc: "Platform digital untuk memantau perkembangan belajar siswa melalui data gameplay, poin, dan laporan perkembangan karakter.",
     icon: Microchip,
     color: "text-rose-400 bg-rose-500/10 border-rose-500/20",
   },
   {
-    title: "Rencana Masa Depan",
-    desc: "Pengembangan VR/AR untuk pengalaman belajar imersif dan berkelanjutan.",
+    title: "Turnamen & Event Edukasi",
+    desc: "Penyelenggaraan kompetisi board game bertema pendidikan yang membangun semangat kolaborasi dan sportivitas pada siswa.",
     icon: Clock,
     color: "text-amber-400 bg-amber-500/10 border-amber-500/20",
   },
@@ -50,7 +50,7 @@ const pillarsProgress = [
 
 export default function EcosystemSection() {
   return (
-    <section id="ekosistem" className="py-20 lg:py-28 bg-[#020617] relative overflow-hidden">
+    <section id="ekosistem" className="py-20 lg:py-28 bg-[#020B2D] relative overflow-hidden">
       {/* Background decorations */}
       <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-blue-900/10 rounded-full blur-[150px] pointer-events-none" />
       <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-purple-900/10 rounded-full blur-[150px] pointer-events-none" />
@@ -60,14 +60,11 @@ export default function EcosystemSection() {
         {/* Header Topic */}
         <div className="text-center mb-16">
           <Badge className="bg-blue-900/40 text-blue-300 hover:bg-blue-900/50 border border-blue-500/30 rounded-full px-4 py-1.5 text-sm font-semibold mb-4">
-            Ekosistem Kami
+            Expertise & Layanan
           </Badge>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white leading-tight">
-            Ekosistem Game-Based <span className="text-blue-500">Learning</span>
+            Game-Based Learning <span className="text-blue-500">Expertise</span>
           </h2>
-          <p className="mt-4 text-slate-400 max-w-2xl mx-auto text-base sm:text-lg">
-            Satu kesatuan ekosistem yang dirancang untuk mendukung inovasi dan kualitas dalam dunia pendidikan secara menyeluruh.
-          </p>
         </div>
 
         {/* Top Split Content */}
@@ -91,9 +88,9 @@ export default function EcosystemSection() {
 
           {/* Right - Content & Progress Bars */}
           <div className="flex flex-col gap-6">
-            <h3 className="text-2xl sm:text-3xl font-bold text-white mb-2">Tiga Pilar Utama Sebangku</h3>
+            <h3 className="text-2xl sm:text-3xl font-bold text-white mb-2">Mengapa Game-Based Learning?</h3>
             <p className="text-slate-400 leading-relaxed mb-4">
-              Setiap bagian dari ekosistem kami dirancang untuk mendukung inovasi dan kualitas dalam dunia pendidikan. Kami memastikan setiap pilar saling terhubung dan memberikan dampak nyata.
+              Riset menunjukkan bahwa anak-anak menyerap informasi 70% lebih efektif ketika belajar melalui permainan. Sebangku mengintegrasikan metode ini ke dalam kurikulum formal untuk menciptakan pengalaman belajar yang tak terlupakan.
             </p>
 
             <div className="flex flex-col gap-5">
