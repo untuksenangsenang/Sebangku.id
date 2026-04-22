@@ -1,105 +1,143 @@
 "use client";
 
-import { ShieldCheck } from "lucide-react";
+import Image from "next/image";
+import { Star } from "lucide-react";
 
-type Partner = {
-  name: string;
-  abbr: string;
-};
-
-const partners: Partner[] = [
-  { name: "SMA Negeri 1 Yogyakarta", abbr: "SMAN 1 YK" },
-  { name: "Universitas Ahmad Dahlan", abbr: "UAD" },
-  { name: "SD Muhammadiyah Sapen", abbr: "SD Sapen" },
-  { name: "SMP Negeri 5 Yogyakarta", abbr: "SMPN 5 YK" },
-  { name: "Dinas Pendidikan DIY", abbr: "Dinas P&K" },
-  { name: "SMA Bopkri 1", abbr: "Bopkri 1" },
-  { name: "TK ABA Karangkajen", abbr: "TK ABA" },
-  { name: "Universitas Gadjah Mada", abbr: "UGM" },
+const partners = [
+  "SD Bopkri",
+  "SD Tumbuh",
+  "SD Bopkri 2",
+  "SD Model",
+  "SMA 2 Sewon",
+  "TK ABA",
+  "Universitas Sanata Dharma",
+  "Universitas Islam Negeri",
+  "Universitas Negeri Jogja",
+  "Universitas Pendidikan Indonesia",
 ];
 
-type PartnerLogoProps = {
-  name: string;
-  abbr: string;
-};
-
-function PartnerLogo({ name, abbr }: PartnerLogoProps): JSX.Element {
+export default function TrustSection() {
   return (
-    <div
-      className="flex-shrink-0 flex flex-col items-center justify-center gap-1.5 mx-8 group transition-transform duration-300 hover:-translate-y-1"
-      title={name}
-    >
-      <div className="w-16 h-16 rounded-2xl bg-white/[0.04] backdrop-blur-sm flex items-center justify-center border border-white/10 group-hover:bg-blue-500/10 group-hover:border-blue-500/30 group-hover:shadow-[0_0_25px_rgba(59,130,246,0.35)] transition-all duration-300">
-        <span className="text-[10px] font-bold text-slate-400 group-hover:text-blue-400 text-center leading-tight px-1 transition-colors">
-          {abbr}
-        </span>
-      </div>
-      <span className="text-xs text-gray-400 font-medium whitespace-nowrap max-w-[100px] text-center leading-tight">
-        {name}
-      </span>
-    </div>
-  );
-}
+    <section className="py-24 bg-[#F8FAFC]">
+      <div className="max-w-6xl mx-auto px-6">
 
-export default function TrustSection(): JSX.Element {
-  return (
-    <section
-      id="trust"
-      className="relative py-20 bg-[#020617] overflow-hidden"
-    >
-      {/* ================= BACKGROUND (CONSISTENT WITH HERO) ================= */}
-      <div className="absolute inset-0 z-0">
-        
-        {/* radial glow */}
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(37,99,235,0.12),transparent_50%)]" />
+        {/* HEADER */}
+        <div className="text-center mb-14">
+          <div className="inline-block bg-blue-100 text-blue-600 text-xs px-4 py-1.5 rounded-full mb-4">
+            Mitra dan Partnership
+          </div>
 
-        {/* subtle gradient */}
-        <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(59,130,246,0.08),transparent_40%)]" />
+          <h2 className="text-3xl sm:text-4xl font-bold text-slate-800">
+            Dipercaya oleh{" "}
+            <span className="text-blue-600">
+              Institusi Pendidikan
+            </span>
+          </h2>
 
-        {/* grid */}
-        <div
-          className="absolute inset-0 opacity-[0.06]"
-          style={{
-            backgroundImage:
-              "linear-gradient(to right, #4f4f4f 1px, transparent 1px)",
-            backgroundSize: "120px 100%",
-          }}
-        />
-      </div>
-
-      {/* ================= HEADER ================= */}
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-12 text-center">
-        <div className="flex items-center justify-center gap-2 mb-2">
-          <ShieldCheck className="w-5 h-5 text-blue-500" />
-          <p className="text-sm font-semibold text-blue-500 uppercase tracking-widest">
-            Mitra Terpercaya
+          <p className="text-slate-500 mt-3 max-w-xl mx-auto text-sm">
+            Kami telah bermitra dengan berbagai sekolah dan organisasi
+            dalam mengimplementasikan pembelajaran berbasis permainan.
           </p>
         </div>
 
-        <h2 className="text-2xl sm:text-3xl font-bold text-white tracking-tight">
-          Dipercaya oleh Institusi Pendidikan
-        </h2>
-
-        <p className="mt-3 text-slate-400 max-w-xl mx-auto text-sm sm:text-base leading-relaxed">
-          Bergabung bersama ratusan sekolah, universitas, dan lembaga pendidikan
-          di Indonesia yang telah menggunakan platform Sebangku.id.
-        </p>
-      </div>
-
-      {/* ================= MARQUEE ================= */}
-      <div className="relative">
-        
-        {/* Fade kiri */}
-        <div className="absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-[#020617] via-[#020617]/80 to-transparent z-10 pointer-events-none" />
-        
-        {/* Fade kanan */}
-        <div className="absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-[#020617] via-[#020617]/80 to-transparent z-10 pointer-events-none" />
-
-        <div className="flex animate-marquee whitespace-nowrap">
-          {[...partners, ...partners].map((p, i) => (
-            <PartnerLogo key={`${p.abbr}-${i}`} name={p.name} abbr={p.abbr} />
+        {/* PARTNER GRID */}
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-6 mb-16">
+          {partners.map((p) => (
+            <div
+              key={p}
+              className="bg-white rounded-xl border border-slate-200 p-5 flex flex-col items-center justify-center text-center hover:shadow-md transition"
+            >
+              <div className="w-12 h-12 rounded-lg bg-gradient-to-br from-blue-500 to-indigo-500 mb-3" />
+              <p className="text-xs text-slate-600">{p}</p>
+            </div>
           ))}
         </div>
+
+        {/* TESTIMONIAL + IMAGE */}
+        <div className="grid md:grid-cols-2 gap-8 mb-16">
+
+          {/* IMAGE */}
+          <div className="space-y-4">
+            <div className="relative h-48 rounded-2xl overflow-hidden">
+              <Image
+                src="https://images.unsplash.com/photo-1588072432836-e10032774350?w=800"
+                alt="anak belajar"
+                fill
+                className="object-cover"
+              />
+            </div>
+
+            <div className="grid grid-cols-2 gap-4">
+              <div className="relative h-28 rounded-xl overflow-hidden">
+                <Image
+                  src="https://images.unsplash.com/photo-1588072432836-e10032774350?w=500"
+                  alt="workshop"
+                  fill
+                  className="object-cover"
+                />
+              </div>
+
+              <div className="bg-blue-900 text-white rounded-xl flex items-center justify-center text-center p-4">
+                <div>
+                  <p className="text-2xl font-bold">25+</p>
+                  <p className="text-xs text-blue-200">
+                    Sekolah & Institusi Mitra
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* TESTIMONIAL */}
+          <div className="flex flex-col gap-4">
+            {[1, 2].map((i) => (
+              <div
+                key={i}
+                className="bg-white border border-slate-200 rounded-xl p-5"
+              >
+                <div className="flex gap-1 mb-2">
+                  {[...Array(5)].map((_, i) => (
+                    <Star
+                      key={i}
+                      className="w-4 h-4 text-yellow-400 fill-yellow-400"
+                    />
+                  ))}
+                </div>
+
+                <p className="text-slate-600 text-sm mb-3">
+                  “Board game yang ada sangat menarik dan mudah dimengerti,
+                  recommended untuk teman-teman yang ingin belajar secara
+                  menyenangkan.”
+                </p>
+
+                <p className="text-xs text-slate-400">
+                  Atta Raditya
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* STATS */}
+        <div className="bg-blue-950 rounded-2xl py-8 px-6 grid grid-cols-2 md:grid-cols-4 text-center text-white gap-6">
+          <div>
+            <p className="text-2xl font-bold">25+</p>
+            <p className="text-xs text-blue-300">Sekolah Mitra</p>
+          </div>
+          <div>
+            <p className="text-2xl font-bold">10.000+</p>
+            <p className="text-xs text-blue-300">Siswa Aktif</p>
+          </div>
+          <div>
+            <p className="text-2xl font-bold">200+</p>
+            <p className="text-xs text-blue-300">Board Game</p>
+          </div>
+          <div>
+            <p className="text-2xl font-bold">8 Tahun</p>
+            <p className="text-xs text-blue-300">Pengalaman</p>
+          </div>
+        </div>
+
       </div>
     </section>
   );
