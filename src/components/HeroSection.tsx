@@ -99,11 +99,11 @@ export default function HeroSection() {
       {/* FLOATING ROCKET */}
       <Float className="absolute right-[-120px] sm:right-[-80px] md:right-[-200px] bottom-[-80px] sm:bottom-[-100px] md:bottom-[-150px] w-[220px] sm:w-[350px] md:w-[720px] pointer-events-none z-[2]">
         <Image
-          src="/assets/rocket.png"
-          alt="Rocket"
-          width={500}
+          src="/assets/gradient.png"
+          alt="gradient bottom"
+          width={1000}
           height={500}
-          className="w-full h-auto object-contain"
+          className="w-full h-auto object-contain opacity-100 mix-blend-screen"
         />
       </Float>
 
