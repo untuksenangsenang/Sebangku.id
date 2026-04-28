@@ -69,40 +69,6 @@ export default function Footer() {
 
   return (
     <footer className="bg-[#020617] text-white border-t border-white/5">
-      {/* Newsletter strip */}
-      <div className="relative py-10 border-b border-white/5 before:absolute before:inset-0 before:bg-gradient-to-r before:from-blue-600/10 before:to-indigo-600/10 before:pointer-events-none">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col md:flex-row items-center justify-between gap-6">
-            <div>
-              <h3 className="text-xl font-bold text-white">
-                Dapatkan Update Terbaru dari Sebangku
-              </h3>
-              <p className="text-blue-100 text-sm mt-1">
-                Tips edukasi, jadwal workshop, dan promo eksklusif langsung ke email kamu.
-              </p>
-            </div>
-            <form
-              className="flex gap-2 w-full md:w-auto"
-              onSubmit={(e) => e.preventDefault()}
-            >
-              <input
-                id="newsletter-email"
-                type="email"
-                placeholder="email@kamu.com"
-                className="flex-1 md:w-64 px-4 py-2.5 rounded-xl text-white text-sm font-medium focus:outline-none focus:ring-2 focus:ring-blue-500/50 bg-white/5 border border-white/10 placeholder:text-slate-500"
-              />
-              <button
-                type="submit"
-                className="px-5 py-2.5 bg-blue-600 hover:bg-blue-500 text-white font-bold rounded-xl flex items-center gap-1.5 transition-colors text-sm whitespace-nowrap shadow-lg shadow-blue-500/20 border border-blue-500/50 relative z-10"
-              >
-                Langganan
-                <ArrowRight className="w-4 h-4" />
-              </button>
-            </form>
-          </div>
-        </div>
-      </div>
-
       {/* Main footer */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-10">
@@ -120,9 +86,7 @@ export default function Footer() {
             </Link>
 
             <p className="text-slate-400 text-sm leading-relaxed max-w-xs">
-              Ekosistem Game-Based Learning terdepan di Indonesia. Kami
-              menghadirkan board game edukatif, pelatihan fasilitator, dan
-              ruang belajar yang menyenangkan untuk semua usia.
+              PT Sebangku Edukasi Indonesia adalah toko game literasi anak pertama di Indonesia yang mempelopori media pembelajaran yang aman, nyaman, dan menyenangkan bagi anak-anak.
             </p>
 
             {/* Contact info */}
@@ -130,16 +94,17 @@ export default function Footer() {
               <div className="flex items-start gap-2.5">
                 <MapPin className="w-4 h-4 text-blue-400 flex-shrink-0 mt-0.5" />
                 <span className="text-slate-400 text-sm">
-                  Jl. Prof. Dr. Soepomo No. 24, Yogyakarta 55164
+                  Jl. Bakungan No.10A, Bakungan, Wedomartani,
+ Kec. Ngemplak, Kabupaten Sleman, Daerah Istimewa Yogyakarta 55584
                 </span>
               </div>
               <div className="flex items-center gap-2.5">
                 <Phone className="w-4 h-4 text-blue-400 flex-shrink-0" />
-                <span className="text-slate-400 text-sm">+62 812-3456-7890</span>
+                <span className="text-slate-400 text-sm">085869511699</span>
               </div>
               <div className="flex items-center gap-2.5">
                 <Mail className="w-4 h-4 text-blue-400 flex-shrink-0" />
-                <span className="text-slate-400 text-sm">hello@sebangku.id</span>
+                <span className="text-slate-400 text-sm">sebangku.games@gmail.com</span>
               </div>
             </div>
 

@@ -7,19 +7,37 @@ import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const navLinks = [
-  { label: "Tentang Kami", href: "#tentang-kami" },
-  { label: "Toko Game", href: "#toko-game" },
+  { label: "Beranda", href: "#beranda" },
+  { label: "Tentang", href: "#tentang" },
   { label: "Layanan", href: "#layanan" },
-  { label: "Portfolio", href: "#portfolio" },
+  { label: "Ekosistem", href: "#ekosistem" },
+  { label: "Partner", href: "#partner" },
   { label: "Kontak", href: "#kontak" },
 ];
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [active, setActive] = useState("");
 
   useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 20);
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 20);
+
+      const sections = document.querySelectorAll("section");
+
+      sections.forEach((section) => {
+        const top = window.scrollY;
+        const offset = section.offsetTop - 120;
+        const height = section.offsetHeight;
+        const id = section.getAttribute("id");
+
+        if (top >= offset && top < offset + height) {
+          setActive(id || "");
+        }
+      });
+    };
+
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
@@ -27,99 +45,104 @@ export default function Navbar() {
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-  scrolled
-    ? "bg-[#020B2D] backdrop-blur-lg shadow-lg shadow-blue-900/10 border-b border-white/10"
-    : "bg-[#020B2D]"
-}`}
+        scrolled
+          ? "bg-[#020B2D]/90 backdrop-blur-lg border-b border-white/10 shadow-lg shadow-blue-900/10"
+          : "bg-[#020B2D]"
+      }`}
     >
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 lg:h-18">
-          {/* Logo */}
+
+          {/* LOGO */}
           <Link href="#beranda" className="flex items-center gap-2 group">
             <Image
               src="/assets/logo.png"
               alt="Sebangku Logo"
               width={40}
               height={40}
-              className="w-10 h-10 object-contain drop-shadow-[0_0_8px_rgba(59,130,246,0.5)] group-hover:scale-105 transition-transform duration-300"
+              className="w-10 h-10 object-contain group-hover:scale-105 transition-transform"
             />
-            <span className="text-xl font-bold">
-              <span className="text-white">Sebangku.id</span>
+            <span className="text-lg font-semibold text-white">
+              Sebangku.id
             </span>
           </Link>
 
-          {/* Desktop Nav */}
+          {/* DESKTOP MENU */}
           <ul className="hidden lg:flex items-center absolute left-1/2 -translate-x-1/2 gap-6">
-            {navLinks.map((link) => (
-              <li key={link.href}>
-                <Link
-                  href={link.href}
-                  className="text-sm font-medium text-slate-400 hover:text-white transition-colors"
-                >
-                  {link.label}
-                </Link>
-              </li>
-            ))}
+            {navLinks.map((link) => {
+              const isActive = active === link.href.replace("#", "");
+
+              return (
+                <li key={link.href}>
+                  <Link
+                    href={link.href}
+                    className={`text-sm font-medium transition ${
+                      isActive
+                        ? "text-white"
+                        : "text-slate-400 hover:text-white"
+                    }`}
+                  >
+                    {link.label}
+                  </Link>
+                </li>
+              );
+            })}
           </ul>
 
-          {/* Desktop CTA */}
-          <div className="hidden lg:flex items-center gap-6">
-            <Link href="#kontak" className="text-sm font-medium text-slate-400 hover:text-white transition-colors">
-              Hubungi Kami
-            </Link>
+          {/* CTA */}
+          <div className="hidden lg:flex items-center gap-4">
             <Button
-              className="bg-blue-500 hover:bg-blue-400 text-white font-medium shadow-none rounded-full px-6"
               asChild
+              className="bg-blue-500 hover:bg-blue-600 text-white rounded-full px-6"
             >
-              <Link href="#mulai">Mulai Sekarang</Link>
+              <Link href="#kontak">Hubungi Kami</Link>
             </Button>
           </div>
 
-          {/* Mobile hamburger */}
+          {/* MOBILE BUTTON */}
           <button
-            id="mobile-menu-btn"
-            className="lg:hidden p-2 rounded-xl text-gray-300 hover:bg-white/10 hover:text-white transition-colors"
+            className="lg:hidden p-2 rounded-lg text-gray-300 hover:bg-white/10"
             onClick={() => setIsOpen(!isOpen)}
-            aria-label="Toggle menu"
           >
-            {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+            {isOpen ? <X /> : <Menu />}
           </button>
         </div>
 
-        {/* Mobile Menu */}
+        {/* MOBILE MENU */}
         <div
-          className={`lg:hidden overflow-hidden transition-all duration-300 ease-in-out ${
-            isOpen ? "max-h-96 pb-4" : "max-h-0"
+          className={`lg:hidden overflow-hidden transition-all duration-300 ${
+            isOpen ? "max-h-[400px] pb-4" : "max-h-0"
           }`}
         >
-          <ul className="flex flex-col gap-1 pt-2 border-t border-white/10 p-4 lg:p-0">
-            {navLinks.map((link) => (
-              <li key={link.href}>
-                <Link
-                  href={link.href}
-                  onClick={() => setIsOpen(false)}
-                  className="block px-4 py-2.5 rounded-lg text-sm font-medium text-gray-300 hover:text-white hover:bg-white/10 transition-all duration-200"
-                >
-                  {link.label}
-                </Link>
-              </li>
-            ))}
-            <li className="pt-3 flex flex-col gap-2">
+          <ul className="flex flex-col gap-1 pt-4 border-t border-white/10">
+            {navLinks.map((link) => {
+              const isActive = active === link.href.replace("#", "");
+
+              return (
+                <li key={link.href}>
+                  <Link
+                    href={link.href}
+                    onClick={() => setIsOpen(false)}
+                    className={`block px-4 py-2.5 rounded-lg text-sm transition ${
+                      isActive
+                        ? "text-white bg-white/10"
+                        : "text-gray-300 hover:text-white hover:bg-white/10"
+                    }`}
+                  >
+                    {link.label}
+                  </Link>
+                </li>
+              );
+            })}
+
+            {/* CTA MOBILE */}
+            <li className="pt-3 px-4">
               <Button
-                variant="outline"
-                className="w-full border-blue-600 text-blue-600 font-semibold"
                 asChild
+                className="w-full bg-blue-500 hover:bg-blue-600 text-white"
               >
-                <Link href="#masuk" onClick={() => setIsOpen(false)}>
-                  Masuk
-                </Link>
-              </Button>
-              <Button
-                className="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold"
-                asChild
-              >
-                <Link href="#daftar" onClick={() => setIsOpen(false)}>
-                  Daftar Gratis
+                <Link href="#kontak" onClick={() => setIsOpen(false)}>
+                  Hubungi Kami
                 </Link>
               </Button>
             </li>
