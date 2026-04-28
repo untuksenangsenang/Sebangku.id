@@ -13,13 +13,35 @@ export default function HomePage() {
     <>
       <Navbar />
       <main>
-        <HeroSection />
-        <ExpertiseSection />
-        <EcosystemSection />
-        <EcosystemFeatureSection />
-        <VisitCafeSection />
-        <TrustSection />
-        <ContactSection />
+
+        <section id="beranda">
+          <HeroSection />
+        </section>
+
+        <section id="tentang">
+          <ExpertiseSection />
+        </section>
+
+        <section id="ekosistem">
+          <EcosystemSection />
+        </section>
+
+        <section id="fitur">
+          <EcosystemFeatureSection />
+        </section>
+
+        <section id="kunjungan">
+          <VisitCafeSection />
+        </section>
+
+        <section id="partner">
+          <TrustSection />
+        </section>
+
+        <section id="kontak">
+          <ContactSection />
+        </section>
+
       </main>
       <Footer />
     </>

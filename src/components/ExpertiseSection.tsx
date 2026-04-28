@@ -38,7 +38,7 @@ export default function ExpertiseSection() {
             </h3>
 
             <p className="text-slate-300 text-lg leading-relaxed">
-              Menjadi ekosistem Game-Based Learning terdepan di Indonesia yang mengintegrasikan pembelajaran karakter dan akademik melalui media permainan interaktif, sehingga setiap anak belajar dengan penuh kegembiraan.
+              Menjadi pusat edukasi keluarga unggulan dunia yang menyediakan pembelajaran yang aman, nyaman dan menyenangkan.
             </p>
           </div>
 

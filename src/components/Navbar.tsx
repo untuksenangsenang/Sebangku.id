@@ -7,12 +7,11 @@ import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const navLinks = [
-  { label: "Beranda", href: "#beranda" },
-  { label: "Tentang", href: "#tentang" },
-  { label: "Layanan", href: "#layanan" },
-  { label: "Ekosistem", href: "#ekosistem" },
-  { label: "Partner", href: "#partner" },
-  { label: "Kontak", href: "#kontak" },
+  { label: "Beranda", href: "/#beranda" },
+  { label: "Tentang", href: "/#tentang" },
+  { label: "Ekosistem", href: "/#ekosistem" },
+  { label: "Partner", href: "/#partner" },
+  { label: "Kontak", href: "/#kontak" },
 ];
 
 export default function Navbar() {
@@ -95,7 +94,13 @@ export default function Navbar() {
               asChild
               className="bg-blue-500 hover:bg-blue-600 text-white rounded-full px-6"
             >
-              <Link href="#kontak">Hubungi Kami</Link>
+              <Link
+  href="https://wa.me/6281234567890?text=Halo%20saya%20ingin%20bertanya%20tentang%20layanan%20Sebangku"
+  target="_blank"
+  className="text-sm font-medium text-slate-400 hover:text-white transition-colors"
+>
+  Hubungi Kami
+</Link>
             </Button>
           </div>
 
