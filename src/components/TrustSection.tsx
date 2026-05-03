@@ -80,39 +80,6 @@ export default function TrustSection() {
 
         </div>
 
-        {/* TESTIMONIAL (tetap statis dulu) */}
-        <div className="grid md:grid-cols-2 gap-8 mb-16">
-
-          <div className="flex flex-col gap-4">
-            {[1, 2].map((i) => (
-              <div
-                key={i}
-                className="bg-white border border-slate-200 rounded-xl p-5"
-              >
-                <div className="flex gap-1 mb-2">
-                  {[...Array(5)].map((_, i) => (
-                    <Star
-                      key={i}
-                      className="w-4 h-4 text-yellow-400 fill-yellow-400"
-                    />
-                  ))}
-                </div>
-
-                <p className="text-slate-600 text-sm mb-3">
-                  “Board game yang ada sangat menarik dan mudah dimengerti,
-                  recommended untuk teman-teman yang ingin belajar secara
-                  menyenangkan.”
-                </p>
-
-                <p className="text-xs text-slate-400">
-                  Atta Raditya
-                </p>
-              </div>
-            ))}
-          </div>
-
-        </div>
-
       </div>
     </section>
   );
