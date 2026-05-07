@@ -2,21 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import {
-  MapPin,
-  Clock,
-  MessageCircle,
-  Calendar,
-  Navigation,
-} from "lucide-react";
-import { Button } from "@/components/ui/button";
-import { Badge } from "@/components/ui/badge";
-
-const operationalHours = [
-  { day: "Senin – Jumat", hours: "10.00 – 21.00 WIB" },
-  { day: "Sabtu", hours: "09.00 – 22.00 WIB" },
-  { day: "Minggu & Libur Nasional", hours: "09.00 – 21.00 WIB" },
-];
+import { MapPin, Clock, Coffee } from "lucide-react";
 
 export default function VisitCafeSection() {
   const waMessage = encodeURIComponent(
@@ -25,82 +11,79 @@ export default function VisitCafeSection() {
   const waLink = `https://wa.me/6281234567890?text=${waMessage}`;
 
   return (
-    <section className="py-24 bg-[#020B2D]">
-  <div className="max-w-7xl mx-auto px-6">
+    <section className="py-12 bg-[#F5F7FA]">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6">
 
-    <div className="grid lg:grid-cols-2 gap-8 items-center">
+        {/* CARD WRAPPER - blue left, image right, no gap */}
+        <div className="flex flex-col lg:flex-row rounded-3xl overflow-hidden shadow-lg min-h-[320px]">
 
-      {/* LEFT CONTENT */}
-      <div className="bg-gradient-to-br from-blue-900/60 to-[#020617] border border-white/10 rounded-3xl p-10">
+          {/* LEFT - Blue content */}
+          <div className="bg-[#3A89D6] p-8 sm:p-10 flex flex-col justify-center gap-5 lg:w-[45%]">
 
-        <Badge className="bg-blue-900/40 text-blue-300 border border-blue-500/30 px-4 py-1.5 rounded-full text-sm mb-6">
-          📍 Kunjungi Kami
-        </Badge>
+            {/* Badge */}
+            <div className="inline-flex items-center gap-2 bg-white/20 text-white rounded-full px-3 py-1 text-xs font-semibold w-fit">
+              <span><Coffee className="w-4 h-4" /></span> Kunjungi Kami
+            </div>
 
-        <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4">
-          Kunjungi Sebangku Cafe
-        </h2>
+            {/* Title */}
+            <h2 className="text-2xl sm:text-3xl font-extrabold text-white leading-snug">
+              Kunjungi Sebangku Cafe
+            </h2>
 
-        <p className="text-slate-300 mb-6 leading-relaxed">
-          Nikmati suasana belajar yang menyenangkan! Datang langsung ke cafe kami,
-          temukan ratusan board game, dan rasakan pengalaman game-based learning
-          bersama fasilitator profesional kami.
-        </p>
+            {/* Desc */}
+            <p className="text-white/85 text-sm leading-relaxed">
+              Nikmati suasana belajar yang menyenangkan! Datang langsung ke cafe kami, temukan ratusan board game, dan rasakan pengalaman game-based learning bersama fasilitator profesional kami.
+            </p>
 
-        {/* INFO */}
-        <div className="space-y-5 mb-8">
+            {/* Info */}
+            <div className="flex flex-col gap-4">
+              <div className="flex items-start gap-3">
+                <Clock className="w-4 h-4 text-white/70 mt-0.5 shrink-0" />
+                <div>
+                  <p className="text-white font-bold text-sm">Jam Operasional</p>
+                  <p className="text-white/75 text-xs mt-0.5">
+                    Senin – Jumat: 10.00 - 19.00<br />
+                    Sabtu – Minggu: Tutup
+                  </p>
+                </div>
+              </div>
 
-          <div className="flex items-start gap-3">
-            <Clock className="w-5 h-5 text-blue-400 mt-1" />
+              <div className="flex items-start gap-3">
+                <MapPin className="w-4 h-4 text-white/70 mt-0.5 shrink-0" />
+                <div>
+                  <p className="text-white font-bold text-sm">Lokasi Strategis</p>
+                  <p className="text-white/75 text-xs mt-0.5">
+                    Jl. Bakungan No.10A, Bakungan, Wedomartani,<br />
+                    Kec. Ngemplak, Kabupaten Sleman, Daerah Istimewa Yogyakarta 55584
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            {/* Button */}
             <div>
-              <p className="text-white font-semibold text-sm">Jam Operasional</p>
-              <p className="text-slate-400 text-sm">
-                Senin - Jumat: 10.00 - 19.00 <br />
-                Sabtu - Minggu: Tutup
-              </p>
+              <Link
+                href={waLink}
+                target="_blank"
+                className="inline-flex items-center gap-2 bg-[#25D366] hover:bg-[#1ebe5d] text-white font-semibold text-sm px-5 py-2.5 rounded-full transition-colors duration-200"
+              >
+                Kunjungi via WhatsApp &rsaquo;
+              </Link>
             </div>
           </div>
 
-          <div className="flex items-start gap-3">
-            <MapPin className="w-5 h-5 text-blue-400 mt-1" />
-            <div>
-              <p className="text-white font-semibold text-sm">Lokasi Strategis</p>
-              <p className="text-slate-400 text-sm">
-                Jl. Bakungan No.10A, Wedomartani,<br />
-                Ngemplak, Sleman, DIY
-              </p>
-            </div>
+          {/* RIGHT - Image flush, no padding */}
+          <div className="relative lg:w-[55%] h-64 lg:h-auto min-h-[280px]">
+            <Image
+              src="https://images.unsplash.com/photo-1554118811-1e0d58224f24?w=1200&q=80"
+              alt="Sebangku Cafe"
+              fill
+              className="object-cover"
+            />
           </div>
 
         </div>
-
-        {/* BUTTON */}
-        <Button
-          asChild
-          className="bg-yellow-500 hover:bg-yellow-600 text-black font-semibold px-6 py-3 rounded-full"
-        >
-          <Link href={waLink} target="_blank">
-            Kunjungi via WhatsApp →
-          </Link>
-        </Button>
-
       </div>
-
-      {/* RIGHT IMAGE */}
-      <div className="relative h-[420px] lg:h-[520px] rounded-3xl overflow-hidden">
-        <Image
-          src="https://images.unsplash.com/photo-1554118811-1e0d58224f24?w=1200&q=80"
-          alt="Sebangku Cafe"
-          fill
-          className="object-cover"
-        />
-
-        {/* overlay biar mirip desain */}
-        <div className="absolute inset-0 bg-gradient-to-l from-transparent to-[#020B2D]/80" />
-      </div>
-
-    </div>
-  </div>
-</section>
+    </section>
   );
 }

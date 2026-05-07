@@ -1,8 +1,8 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { User2Icon} from "lucide-react";
 import Image from "next/image";
-import { Star } from "lucide-react";
 
 type Partner = {
   id: string;
@@ -30,13 +30,14 @@ export default function TrustSection() {
 
         {/* HEADER */}
         <div className="text-center mb-14">
-          <div className="inline-block bg-blue-100 text-blue-600 text-xs px-4 py-1.5 rounded-full mb-4">
-            Mitra dan Partnership
+          <div className="inline-flex items-center gap-2 bg-blue-50 border border-[#3A89D6]/30 text-[#3A89D6] rounded-full px-4 py-1.5 text-sm font-semibold mb-5">
+            <span>
+              <User2Icon className="w-4 h-4" /></span> Mitra dan Partnership
           </div>
 
           <h2 className="text-3xl sm:text-4xl font-bold text-slate-800">
             Dipercaya oleh{" "}
-            <span className="text-blue-600">
+            <span className="text-[#3A89D6]">
               Institusi Pendidikan
             </span>
           </h2>
@@ -66,6 +67,7 @@ export default function TrustSection() {
                       src={p.logo}
                       alt={p.name}
                       fill
+                      sizes="(max-width: 768px) 50vw, (max-width: 1200px) 20vw, 200px"
                       className="object-contain"
                     />
                   </div>
