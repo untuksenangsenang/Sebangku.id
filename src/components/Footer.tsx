@@ -39,17 +39,17 @@ const footerLinks = {
 const socials = [
   {
     icon: Camera,
-    href: "https://instagram.com/sebangku.id",
+    href: "https://www.instagram.com/sebangku.cafe?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==",
     label: "Instagram",
   },
   {
     icon: Video,
-    href: "https://youtube.com/@sebangku",
+    href: "https://youtube.com/@sebangku.eduplay?si=12gkqOHZsStqFNgc",
     label: "YouTube",
   },
   {
     icon: Globe,
-    href: "https://facebook.com/sebangku.id",
+    href: "https://www.facebook.com/GameLiterasiAnak?locale=id_ID",
     label: "Facebook",
   },
 ];
