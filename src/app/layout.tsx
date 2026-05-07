@@ -10,9 +10,9 @@ const poppins = Poppins({
 });
 
 export const metadata: Metadata = {
-  title: "Sebangku.id – Ekosistem Game-Based Learning Terdepan di Indonesia",
+  title: "PT.Sebangku Jaya Abadi",
   description:
-    "Sebangku.id adalah ekosistem edukasi berbasis permainan (Game-Based Learning) yang menyediakan board game edukatif, pelatihan fasilitator, Sebangku Cafe, dan sistem loyalitas XP. Transformasi cara belajar melalui media permainan.",
+    "PT.Sebangku Jaya Abadi adalah ekosistem edukasi berbasis permainan yang menyediakan board game edukatif, pelatihan fasilitator, Sebangku Cafe, dan sistem loyalitas XP. Transformasi cara belajar melalui media permainan.",
   keywords: [
     "game-based learning",
     "board game edukasi",
@@ -34,7 +34,7 @@ export const metadata: Metadata = {
     locale: "id_ID",
     url: "https://sebangku.id",
     siteName: "Sebangku.id",
-    title: "Sebangku.id – Ekosistem Game-Based Learning Terdepan di Indonesia",
+    title: "Sebangku.id – Ekosistem Media Permainan Terdepan di Indonesia",
     description:
       "Transformasi edukasi melalui media permainan. Board game, pelatihan guru, cafe, dan loyalitas pelanggan dalam satu ekosistem.",
     images: [
@@ -59,15 +59,20 @@ export const metadata: Metadata = {
     googleBot: { index: true, follow: true },
   },
   icons: {
-    icon: "/favicon.ico",
+    icon: [
+      { url: "/favicon.ico" },
+      { url: "/favicon-16x16.png", sizes: "16x16", type: "image/png" },
+      { url: "/favicon-32x32.png", sizes: "32x32", type: "image/png" },
+    ],
     apple: "/apple-touch-icon.png",
+    shortcut: "/favicon.ico",
   },
 };
 
 export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
-  themeColor: "#2563eb",
+  themeColor: "#3A89D6",
 };
 
 export default function RootLayout({
