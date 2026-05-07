@@ -26,10 +26,6 @@ export default function HeroSection() {
           from { opacity: 0; transform: translateY(32px); }
           to   { opacity: 1; transform: translateY(0); }
         }
-        @keyframes fadeIn {
-          from { opacity: 0; }
-          to   { opacity: 1; }
-        }
         @keyframes floatLeft {
           0%, 100% { transform: translateY(0px) rotate(-1deg); }
           50%       { transform: translateY(-14px) rotate(1deg); }
@@ -76,8 +72,7 @@ export default function HeroSection() {
         .float-right { animation: floatRight 4.5s ease-in-out 0.5s infinite; }
 
         .char-img {
-          transition: transform 0.35s cubic-bezier(.34,1.56,.64,1),
-                      filter 0.35s ease;
+          transition: transform 0.35s cubic-bezier(.34,1.56,.64,1), filter 0.35s ease;
           filter: drop-shadow(0 8px 24px rgba(0,0,0,0.15));
         }
         .char-img:hover {
@@ -87,28 +82,51 @@ export default function HeroSection() {
         }
 
         .icon-pulse:hover { animation: iconSpin 0.5s ease; }
+
+        /* Ukuran karakter berdasarkan viewport height agar proporsional di semua layar */
+        .char-left, .char-right {
+          width: clamp(120px, 18vw, 420px);
+        }
+
+        /* Tablet portrait */
+        @media (max-width: 1024px) and (min-width: 768px) {
+          .char-left, .char-right {
+            width: clamp(140px, 20vw, 280px);
+          }
+        }
+
+        /* Mobile */
+        @media (max-width: 767px) {
+          .char-left, .char-right {
+            width: clamp(100px, 28vw, 160px);
+          }
+        }
+
+        /* Layar sangat lebar (>1400px) */
+        @media (min-width: 1400px) {
+          .char-left, .char-right {
+            width: clamp(280px, 16vw, 460px);
+          }
+        }
       `}</style>
 
       {/* CONTENT */}
       <div className="relative z-10 max-w-6xl mx-auto px-4 text-center">
 
         {/* BADGE */}
-        <div className={`anim-badge inline-flex items-center border border-[#2E2415] backdrop-blur 
-          px-3 py-1 sm:px-4 sm:py-1.5 rounded-full mb-4 sm:mb-6 shadow-sm`}>
+        <div className="anim-badge inline-flex items-center border border-[#2E2415] backdrop-blur
+          px-3 py-1 sm:px-4 sm:py-1.5 rounded-full mb-4 sm:mb-6 shadow-sm">
           <span className="text-xs sm:text-sm text-[#2E2415]">
             Ekosistem Media Permainan{" "}
-            <span className="text-[#3A89D6] font-semibold">
-              #1 Indonesia
-            </span>
+            <span className="text-[#3A89D6] font-semibold">#1 Indonesia</span>
           </span>
         </div>
 
         {/* TITLE */}
-        <h1 className={`anim-title
-          text-[clamp(2.6rem,7vw,4.5rem)] 
-          sm:text-[clamp(3rem,6vw,4.5rem)]
+        <h1 className="anim-title
+          text-[clamp(1.8rem,5vw,4.5rem)]
           font-extrabold leading-tight mb-4 sm:mb-6
-        `}>
+        ">
           <span className="shimmer-text">
             Transformasi Edukasi Melalui <br />
             Media Permainan
@@ -116,17 +134,17 @@ export default function HeroSection() {
 
           {/* ICONS */}
           <span className="inline-flex items-center ml-2 sm:ml-3 align-middle">
-            <div className="icon-pulse w-7 h-7 sm:w-10 sm:h-10 bg-white rounded-full flex items-center justify-center shadow-lg cursor-pointer">
-              <Gamepad2 className="w-4 h-4 sm:w-5 sm:h-5 text-black" />
+            <div className="icon-pulse w-6 h-6 sm:w-8 sm:h-8 md:w-10 md:h-10 bg-white rounded-full flex items-center justify-center shadow-lg cursor-pointer">
+              <Gamepad2 className="w-3 h-3 sm:w-4 sm:h-4 md:w-5 md:h-5 text-black" />
             </div>
-            <div className="icon-pulse w-7 h-7 sm:w-10 sm:h-10 bg-blue-500 rounded-full flex items-center justify-center -ml-2 border-2 border-white cursor-pointer">
-              <Blocks className="w-4 h-4 sm:w-5 sm:h-5 text-white" />
+            <div className="icon-pulse w-6 h-6 sm:w-8 sm:h-8 md:w-10 md:h-10 bg-blue-500 rounded-full flex items-center justify-center -ml-1.5 border-2 border-white cursor-pointer">
+              <Blocks className="w-3 h-3 sm:w-4 sm:h-4 md:w-5 md:h-5 text-white" />
             </div>
           </span>
         </h1>
 
         {/* SUBTITLE */}
-        <p className="anim-subtitle text-[#2E2415] max-w-2xl mx-auto mb-6 sm:mb-8 text-sm sm:text-base">
+        <p className="anim-subtitle text-[#2E2415] max-w-xl mx-auto mb-6 sm:mb-8 text-xs sm:text-sm md:text-base leading-relaxed">
           PT. Sebangku Jaya Abadi adalah game literasi anak pertama di Indonesia yang
           mempelopori media pembelajaran yang aman, nyaman, dan menyenangkan
           bagi anak-anak.
@@ -136,30 +154,22 @@ export default function HeroSection() {
         <div className="anim-buttons flex justify-center gap-3 sm:gap-4 flex-wrap">
           <Link
             href="/#ekosistem"
-            className="px-5 py-2.5 sm:px-6 sm:py-3 
-            rounded-full 
-            border border-[#3A89D6] 
-            text-[#3A89D6] 
-            font-semibold 
+            className="px-4 py-2 sm:px-5 sm:py-2.5 md:px-6 md:py-3
+            rounded-full border border-[#3A89D6] text-[#3A89D6] font-semibold
             hover:bg-[#3A89D6] hover:text-white
             hover:scale-105 hover:shadow-lg hover:shadow-[#3A89D6]/30
-            active:scale-95
-            transition-all duration-200 text-sm sm:text-base"
+            active:scale-95 transition-all duration-200 text-xs sm:text-sm md:text-base"
           >
             Explorasi Katalog
           </Link>
 
           <Link
             href="/#tentang"
-            className="px-5 py-2.5 sm:px-6 sm:py-3 
-            rounded-full 
-            border border-[#F5A30B] 
-            text-[#F5A30B] 
-            font-semibold 
+            className="px-4 py-2 sm:px-5 sm:py-2.5 md:px-6 md:py-3
+            rounded-full border border-[#F5A30B] text-[#F5A30B] font-semibold
             hover:bg-[#F5A30B] hover:text-white
             hover:scale-105 hover:shadow-lg hover:shadow-[#F5A30B]/30
-            active:scale-95
-            transition-all duration-200 text-sm sm:text-base"
+            active:scale-95 transition-all duration-200 text-xs sm:text-sm md:text-base"
           >
             Tentang Kami
           </Link>
@@ -167,12 +177,10 @@ export default function HeroSection() {
       </div>
 
       {/* LEFT CHARACTER */}
-      <div className="
-        absolute left-[-20px] sm:left-20 
-        bottom-[10px] sm:bottom-0 md:bottom-10
-        w-[220px] sm:w-[320px] md:w-[420px] lg:w-[520px]
-        z-[2] float-left
-      ">
+      <div
+        className="char-left absolute left-0 sm:left-4 md:left-8 lg:left-16
+          bottom-0 z-[2] float-left"
+      >
         <Image
           src="/assets/caca.png"
           alt="caca"
@@ -184,11 +192,10 @@ export default function HeroSection() {
       </div>
 
       {/* RIGHT CHARACTER */}
-      <div className="
-        absolute right-[-20px] sm:right-0 bottom-0 
-        w-[220px] sm:w-[320px] md:w-[420px] lg:w-[520px]
-        z-[2] float-right
-      ">
+      <div
+        className="char-right absolute right-0 sm:right-4 md:right-8 lg:right-16
+          bottom-0 z-[2] float-right"
+      >
         <Image
           src="/assets/marica.png"
           alt="marica"
