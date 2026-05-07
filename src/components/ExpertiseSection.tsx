@@ -17,7 +17,7 @@ export default function ExpertiseSection() {
           </div>
 
           <p className="text-gray-600 text-base md:text-lg max-w-xl md:max-w-2xl mx-auto leading-relaxed">
-            Sebangku.id menghadirkan pengalaman belajar yang menyenangkan
+            PT. Sebangku Jaya Abadi menghadirkan pengalaman belajar yang menyenangkan
             melalui game yang mendorong interaksi antar pemain.
           </p>
         </div>

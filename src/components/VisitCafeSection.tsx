@@ -42,8 +42,8 @@ export default function VisitCafeSection() {
                 <div>
                   <p className="text-white font-bold text-sm">Jam Operasional</p>
                   <p className="text-white/75 text-xs mt-0.5">
-                    Senin – Jumat: 10.00 - 19.00<br />
-                    Sabtu – Minggu: Tutup
+                    Senin – Sabtu: 10.00 - 19.00<br />
+                    Minggu: Tutup
                   </p>
                 </div>
               </div>
