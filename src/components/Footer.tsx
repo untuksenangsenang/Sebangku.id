@@ -2,37 +2,23 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import {
-  MapPin,
-  Phone,
-  Mail,
-  Camera,
-  Video,
-  MessageCircle,
-  Globe,
-} from "lucide-react";
+import { MapPin, Phone, Mail, Camera, Video, Globe } from "lucide-react";
 
 const footerLinks = {
+  navigasi: [
+    { label: "Beranda", href: "#beranda" },
+    { label: "Tentang Kami", href: "#tentang" },
+    { label: "Ekosistem", href: "#ekosistem" },
+    { label: "Fitur & Layanan", href: "#fitur" },
+    { label: "Kunjungi Cafe", href: "#kunjungi" },
+    { label: "Hubungi Kami", href: "#kontak" },
+  ],
   layanan: [
-    { label: "Toko Board Game", href: "#ekosistem" },
+    { label: "Toko Edugame", href: "#ekosistem" },
     { label: "Sebangku Cafe", href: "#kunjungi" },
-    { label: "Pelatihan Guru", href: "#expertise" },
-    { label: "Program Sekolah", href: "#expertise" },
-    { label: "Corporate Event", href: "#" },
-  ],
-  perusahaan: [
-    { label: "Tentang Kami", href: "#expertise" },
-    { label: "Visi & Misi", href: "#" },
-    { label: "Tim Kami", href: "#" },
-    { label: "Karir", href: "#" },
-    { label: "Blog & Artikel", href: "#blog" },
-  ],
-  komunitas: [
-    { label: "Program Loyalitas", href: "#ekosistem" },
-    { label: "Leaderboard", href: "#" },
-    { label: "Forum Diskusi", href: "#" },
-    { label: "Referral Program", href: "#" },
-    { label: "Partner Sekolah", href: "#trust" },
+    { label: "Loyalty & Poin", href: "#ekosistem" },
+    { label: "Pelatihan Guru", href: "#fitur" },
+    { label: "Konsultasi Kurikulum", href: "#fitur" },
   ],
 };
 
@@ -57,19 +43,32 @@ const socials = [
 export default function Footer() {
   const currentYear = new Date().getFullYear();
 
+  const handleScroll = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    if (href.startsWith("#")) {
+      e.preventDefault();
+      const el = document.querySelector(href);
+      if (el) {
+        el.scrollIntoView({ behavior: "smooth", block: "start" });
+      }
+    }
+  };
+
   return (
     <footer className="bg-[#3A89D6] text-white">
 
       {/* Main footer */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-10">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
 
           {/* Brand column */}
-          <div className="lg:col-span-2 flex flex-col gap-5">
+          <div className="lg:col-span-2 flex flex-col gap-4">
 
             {/* Logo */}
-            <Link href="#beranda" className="flex items-center gap-2">
-              {/* Ganti src dengan path logo Anda, misal: /assets/logo.png */}
+            <Link
+              href="#beranda"
+              onClick={(e) => handleScroll(e, "#beranda")}
+              className="flex items-center gap-2 w-fit"
+            >
               <Image
                 src="/assets/logo.png"
                 alt="Sebangku Logo"
@@ -77,43 +76,45 @@ export default function Footer() {
                 height={36}
                 className="rounded-xl"
               />
-              <span className="text-xl font-bold text-white">
-                Sebangku.id
-              </span>
+              <span className="text-xl font-bold text-white">Sebangku.id</span>
             </Link>
 
             <p className="text-white/80 text-sm leading-relaxed max-w-xs">
-              PT Sebangku Edukasi Indonesia adalah toko game literasi anak pertama di Indonesia yang mempelopori media pembelajaran yang aman, nyaman, dan menyenangkan bagi anak-anak.
+              PT Sebangku Jaya Abadi — ekosistem edukasi berbasis permainan pertama di Indonesia. Belajar yang aman, nyaman, dan menyenangkan untuk keluarga.
             </p>
 
-            {/* Contact info */}
-            <div className="flex flex-col gap-2.5">
-              <div className="flex items-start gap-2.5">
-                <MapPin className="w-4 h-4 text-white/70 flex-shrink-0 mt-0.5" />
-                <span className="text-white/80 text-sm">
-                  Jl. Bakungan No.10A, Bakungan, Wedomartani,
-                  Kec. Ngemplak, Kabupaten Sleman, Daerah Istimewa Yogyakarta 55584
+            {/* Contact */}
+            <div className="flex flex-col gap-2">
+              <div className="flex items-start gap-2">
+                <MapPin className="w-4 h-4 text-white/70 shrink-0 mt-0.5" />
+                <span className="text-white/75 text-xs leading-relaxed">
+                  Jl. Bakungan No.10A, Wedomartani, Kec. Ngemplak, Sleman, DIY 55584
                 </span>
               </div>
-              <div className="flex items-center gap-2.5">
-                <Phone className="w-4 h-4 text-white/70 flex-shrink-0" />
-                <span className="text-white/80 text-sm">085869511699</span>
+              <div className="flex items-center gap-2">
+                <Phone className="w-4 h-4 text-white/70 shrink-0" />
+                <a href="tel:085869511699" className="text-white/75 text-xs hover:text-white transition-colors">
+                  085869511699
+                </a>
               </div>
-              <div className="flex items-center gap-2.5">
-                <Mail className="w-4 h-4 text-white/70 flex-shrink-0" />
-                <span className="text-white/80 text-sm">sebangku.games@gmail.com</span>
+              <div className="flex items-center gap-2">
+                <Mail className="w-4 h-4 text-white/70 shrink-0" />
+                <a href="mailto:sebangku.games@gmail.com" className="text-white/75 text-xs hover:text-white transition-colors">
+                  sebangku.games@gmail.com
+                </a>
               </div>
             </div>
 
-            {/* Social media */}
-            <div className="flex items-center gap-2">
+            {/* Socials */}
+            <div className="flex items-center gap-2 mt-1">
               {socials.map(({ icon: Icon, href, label }) => (
                 <Link
                   key={label}
                   href={href}
                   target="_blank"
+                  rel="noopener noreferrer"
                   aria-label={label}
-                  className="w-9 h-9 rounded-xl bg-white/20 flex items-center justify-center border border-white/20 hover:bg-white/30 transition-colors duration-200"
+                  className="w-9 h-9 rounded-xl bg-white/20 flex items-center justify-center border border-white/20 hover:bg-white/35 transition-colors duration-200"
                 >
                   <Icon className="w-4 h-4 text-white" />
                 </Link>
@@ -121,54 +122,33 @@ export default function Footer() {
             </div>
           </div>
 
+          {/* Navigasi */}
+          <div>
+            <h4 className="font-bold text-white mb-4 text-sm tracking-wide">Navigasi</h4>
+            <ul className="flex flex-col gap-2.5">
+              {footerLinks.navigasi.map((link) => (
+                <li key={link.label}>
+                  <Link
+                    href={link.href}
+                    onClick={(e) => handleScroll(e, link.href)}
+                    className="text-white/75 text-sm hover:text-white transition-colors"
+                  >
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
           {/* Layanan */}
           <div>
-            <h4 className="font-bold text-white mb-4 text-sm">
-              Layanan
-            </h4>
+            <h4 className="font-bold text-white mb-4 text-sm tracking-wide">Layanan</h4>
             <ul className="flex flex-col gap-2.5">
               {footerLinks.layanan.map((link) => (
                 <li key={link.label}>
                   <Link
                     href={link.href}
-                    className="text-white/75 text-sm hover:text-white transition-colors"
-                  >
-                    {link.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Perusahaan */}
-          <div>
-            <h4 className="font-bold text-white mb-4 text-sm">
-              Perusahaan
-            </h4>
-            <ul className="flex flex-col gap-2.5">
-              {footerLinks.perusahaan.map((link) => (
-                <li key={link.label}>
-                  <Link
-                    href={link.href}
-                    className="text-white/75 text-sm hover:text-white transition-colors"
-                  >
-                    {link.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Komunitas */}
-          <div>
-            <h4 className="font-bold text-white mb-4 text-sm">
-              Komunitas
-            </h4>
-            <ul className="flex flex-col gap-2.5">
-              {footerLinks.komunitas.map((link) => (
-                <li key={link.label}>
-                  <Link
-                    href={link.href}
+                    onClick={(e) => handleScroll(e, link.href)}
                     className="text-white/75 text-sm hover:text-white transition-colors"
                   >
                     {link.label}
@@ -183,17 +163,18 @@ export default function Footer() {
 
       {/* Bottom bar */}
       <div className="border-t border-white/20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-5">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
           <div className="flex flex-col sm:flex-row items-center justify-between gap-3">
-            <p className="text-white/70 text-xs text-center sm:text-left">
-              © {currentYear} <strong className="text-white">PT Sebangku Jaya Abadi</strong>. Hak Cipta Dilindungi.
+            <p className="text-white/65 text-xs text-center sm:text-left">
+              © {currentYear}{" "}
+              <strong className="text-white">PT Sebangku Jaya Abadi</strong>. Hak Cipta Dilindungi.
             </p>
             <div className="flex items-center gap-4">
-              {["Kebijakan Privasi", "Syarat & Ketentuan", "Cookie Policy"].map((item) => (
+              {["Kebijakan Privasi", "Syarat & Ketentuan"].map((item) => (
                 <Link
                   key={item}
                   href="#"
-                  className="text-white/70 text-xs hover:text-white transition-colors"
+                  className="text-white/65 text-xs hover:text-white transition-colors"
                 >
                   {item}
                 </Link>
