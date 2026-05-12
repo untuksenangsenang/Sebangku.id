@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { Menu, X } from "lucide-react";
@@ -10,130 +10,155 @@ import { usePathname } from "next/navigation";
 const navLinks = [
   { label: "Beranda", href: "#beranda" },
   { label: "Tentang", href: "#tentang" },
-  { label: "Ekosistem", href: "#ekosistem" },
+  { label: "Layanan", href: "#layanan" },
   { label: "Partner", href: "#partner" },
   { label: "Kontak", href: "#kontak" },
 ];
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
   const pathname = usePathname();
 
+  useEffect(() => {
+    const handleScroll = () => setScrolled(window.scrollY > 10);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-lg border-b border-gray-200 shadow-sm">
-      <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16">
+    <>
+      {/* Import Poppins font */}
+      <style jsx global>{`
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap');
+        .navbar-font {
+          font-family: 'Poppins', sans-serif;
+        }
+      `}</style>
 
-          {/* LOGO */}
-          <Link href="/" className="flex items-center gap-2 group">
-            <Image
-              src="/assets/logo.png"
-              alt="Sebangku Logo"
-              width={40}
-              height={40}
-              className="w-10 h-10 object-contain group-hover:scale-105 transition"
-            />
-            <span className="text-lg font-bold text-[#3A89D6] tracking-tight">
-              PT. Sebangku Jaya Abadi
-            </span>
-          </Link>
+      <header
+        className={`navbar-font fixed top-0 left-0 right-0 z-50 bg-white transition-shadow duration-300 ${
+          scrolled ? "shadow-md" : "shadow-sm border-b border-gray-100"
+        }`}
+      >
+        <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-10">
+          <div className="flex items-center justify-between h-[70px]">
 
-          {/* DESKTOP MENU */}
-          <ul className="hidden lg:flex items-center gap-8">
-            {navLinks.map((link) => {
-              const isActive = pathname === link.href;
+            {/* ── LOGO ── */}
+            <Link href="/" className="flex items-center gap-3 group flex-shrink-0">
+              <div className="relative w-10 h-10">
+                <Image
+                  src="/assets/logo.png"
+                  alt="Sebangku Logo"
+                  fill
+                  className="object-contain group-hover:scale-105 transition-transform duration-200"
+                />
+              </div>
+              <span
+                className="text-[17px] font-bold tracking-tight leading-tight"
+                style={{ color: "#3989D6" }}
+              >
+                PT. Sebangku Jaya Abadi
+              </span>
+            </Link>
 
-              return (
-                <li key={link.href}>
-                  <Link
-                    href={link.href}
-                    className={`text-sm font-semibold transition relative ${
-                      isActive
-                        ? "text-[#3A89D6]"
-                        : "text-blue-500 hover:text-[#2E2415]"
-                    }`}
-                  >
-                    {link.label}
+            {/* ── DESKTOP MENU ── */}
+            <ul className="hidden lg:flex items-center gap-1">
+              {navLinks.map((link) => {
+                const isActive = pathname === link.href;
+                return (
+                  <li key={link.href}>
+                    <Link
+                      href={link.href}
+                      className={`relative px-4 py-2 text-[15.5px] font-semibold transition-colors duration-200 rounded-md ${
+                        isActive
+                          ? "text-[#3989D6]"
+                          : "text-gray-600 hover:text-[#3989D6] hover:bg-blue-50"
+                      }`}
+                    >
+                      {link.label}
+                      {isActive && (
+                        <span
+                          className="absolute left-1/2 -translate-x-1/2 -bottom-[2px] w-5 h-[3px] rounded-full"
+                          style={{ backgroundColor: "#3989D6" }}
+                        />
+                      )}
+                    </Link>
+                  </li>
+                );
+              })}
+            </ul>
 
-                    {/* ACTIVE UNDERLINE */}
-                    {isActive && (
-                      <span className="absolute left-0 -bottom-1 w-full h-[2px] bg-[#F35E92] rounded-full" />
-                    )}
-                  </Link>
-                </li>
-              );
-            })}
-          </ul>
-
-          {/* CTA */}
-          <div className="hidden lg:flex items-center">
-            <Button
-              asChild
-              className="bg-[#3A89D6] hover:bg-blue-600 text-white rounded-full px-6 font-semibold"
-            >
+            {/* ── CTA BUTTON ── */}
+            <div className="hidden lg:flex items-center">
               <Link
                 href="https://wa.me/6281234567890?text=Halo%20saya%20ingin%20bertanya%20tentang%20Sebangku"
                 target="_blank"
+                className="inline-flex items-center justify-center px-7 py-[10px] text-[15px] font-semibold text-white rounded-full shadow-sm hover:shadow-md transition-all duration-200 hover:scale-[1.03] active:scale-100"
+                style={{ backgroundColor: "#3989D6" }}
               >
-                Hubungi Kami
+                Mulai Sekarang
               </Link>
-            </Button>
+            </div>
+
+            {/* ── HAMBURGER (mobile) ── */}
+            <button
+              className="lg:hidden p-2 rounded-lg transition-colors"
+              style={{ color: "#3989D6" }}
+              onClick={() => setIsOpen(!isOpen)}
+              aria-label="Toggle menu"
+            >
+              {isOpen ? <X size={26} /> : <Menu size={26} />}
+            </button>
           </div>
 
-          {/* MOBILE BUTTON */}
-          <button
-            className="lg:hidden p-2 rounded-lg text-[#2E2415]"
-            onClick={() => setIsOpen(!isOpen)}
+          {/* ── MOBILE MENU ── */}
+          <div
+            className={`lg:hidden overflow-hidden transition-all duration-300 ease-in-out ${
+              isOpen ? "max-h-[500px] opacity-100" : "max-h-0 opacity-0"
+            }`}
           >
-            {isOpen ? <X /> : <Menu />}
-          </button>
-        </div>
+            <ul className="flex flex-col gap-1 border-t border-gray-100 py-4">
+              {navLinks.map((link) => {
+                const isActive = pathname === link.href;
+                return (
+                  <li key={link.href}>
+                    <Link
+                      href={link.href}
+                      onClick={() => setIsOpen(false)}
+                      className={`flex items-center px-4 py-3 rounded-xl text-[15px] font-semibold transition-all duration-150 ${
+                        isActive
+                          ? "text-white"
+                          : "text-gray-700 hover:bg-blue-50 hover:text-[#3989D6]"
+                      }`}
+                      style={
+                        isActive
+                          ? { backgroundColor: "#3989D6" }
+                          : {}
+                      }
+                    >
+                      {link.label}
+                    </Link>
+                  </li>
+                );
+              })}
 
-        {/* MOBILE MENU */}
-        <div
-          className={`lg:hidden transition-all duration-300 ${
-            isOpen ? "max-h-[400px] py-4" : "max-h-0 overflow-hidden"
-          }`}
-        >
-          <ul className="flex flex-col gap-2 border-t pt-4">
-            {navLinks.map((link) => {
-              const isActive = pathname === link.href;
-
-              return (
-                <li key={link.href}>
-                  <Link
-                    href={link.href}
-                    onClick={() => setIsOpen(false)}
-                    className={`block px-4 py-2 rounded-lg text-sm font-semibold transition ${
-                      isActive
-                        ? "bg-pink-500 text-white"
-                        : "text-[#2E2415] hover:bg-gray-100"
-                    }`}
-                  >
-                    {link.label}
-                  </Link>
-                </li>
-              );
-            })}
-
-            {/* CTA MOBILE */}
-            <li className="pt-3 px-4">
-              <Button
-                asChild
-                className="w-full bg-pink-500 hover:bg-pink-600 text-white font-semibold"
-              >
+              {/* CTA Mobile */}
+              <li className="pt-3 px-1">
                 <Link
                   href="https://wa.me/6281234567890"
                   target="_blank"
                   onClick={() => setIsOpen(false)}
+                  className="flex items-center justify-center w-full py-3 rounded-full text-white text-[15px] font-semibold shadow transition-opacity hover:opacity-90"
+                  style={{ backgroundColor: "#3989D6" }}
                 >
-                  Hubungi Kami
+                  Mulai Sekarang
                 </Link>
-              </Button>
-            </li>
-          </ul>
-        </div>
-      </nav>
-    </header>
+              </li>
+            </ul>
+          </div>
+        </nav>
+      </header>
+    </>
   );
 }
