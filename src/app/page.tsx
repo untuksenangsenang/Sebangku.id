@@ -1,11 +1,11 @@
 import Navbar from "@/components/Navbar";
 import HeroSection from "@/components/HeroSection";
-import TrustSection from "@/components/TrustSection";
+import FAQSection from "@/components/FAQSection";
 import ExpertiseSection from "@/components/ExpertiseSection";
 import EcosystemSection from "@/components/EcosystemSection";
-import EcosystemFeatureSection from "@/components/EcosystemFeatureSection";
-import VisitCafeSection from "@/components/VisitCafeSection";
-import ContactSection from "@/components/ContactSection";
+import TestimoniSection from "@/components/TestimoniSection";
+import WorkSection from "@/components/WorkSection";
+import CTASection from "@/components/CTASection";
 import Footer from "@/components/Footer";
 
 export default function HomePage() {
@@ -27,19 +27,19 @@ export default function HomePage() {
         </section>
 
         <section id="fitur">
-          <EcosystemFeatureSection />
+          <TestimoniSection />
         </section>
 
         <section id="kunjungan">
-          <VisitCafeSection />
+          <WorkSection />
         </section>
 
         <section id="partner">
-          <TrustSection />
+          <FAQSection />
         </section>
 
         <section id="kontak">
-          <ContactSection />
+          <CTASection />
         </section>
 
       </main>

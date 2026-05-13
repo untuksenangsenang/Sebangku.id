@@ -161,7 +161,7 @@ export default function ExpertiseSection() {
   style={{ fontSize: "clamp(1.9rem, 4.5vw, 3rem)" }}
 >
   Apakah Anda Menghadapi{" "}
-  <span style={{ color: "#FF4040" }}>Masalah</span> Ini?
+  <span style={{ color: "#3989D6" }}>Masalah</span> Ini?
 </h2>
 
           {/* Sub */}
