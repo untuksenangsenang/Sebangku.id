@@ -93,7 +93,7 @@ export default function EcosystemSection() {
   return (
     <section
       id="ekosistem"
-      className="py-20 lg:py-28 bg-[#F5F7FA] relative overflow-hidden"
+      className="py-20 lg:py-28 bg-[#D9F3FE] relative overflow-hidden"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 

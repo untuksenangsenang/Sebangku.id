@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { WhatsappLogoIcon } from "@phosphor-icons/react";
+import { EnvelopeSimpleIcon } from "@phosphor-icons/react";
 import { useEffect, useRef, useState } from "react";
 
 export default function CTASection() {
@@ -37,7 +37,6 @@ export default function CTASection() {
           font-family: 'Poppins', sans-serif;
         }
 
-        /* Background */
         .cta-bg {
           background:
             radial-gradient(circle at top left, rgba(255,255,255,0.14), transparent 30%),
@@ -45,7 +44,6 @@ export default function CTASection() {
             linear-gradient(135deg, #1D4F91 0%, #1E63B8 45%, #2B8CE8 100%);
         }
 
-        /* Floating blur */
         @keyframes floatBlur {
           0%,100% {
             transform: translate(0px,0px) scale(1);
@@ -59,7 +57,6 @@ export default function CTASection() {
           animation: floatBlur 8s ease-in-out infinite;
         }
 
-        /* Fade up */
         @keyframes fadeUp {
           from {
             opacity: 0;
@@ -71,7 +68,6 @@ export default function CTASection() {
           }
         }
 
-        /* Badge */
         @keyframes badgePop {
           0% {
             opacity: 0;
@@ -86,7 +82,6 @@ export default function CTASection() {
           }
         }
 
-        /* Button glow */
         @keyframes pulseGlow {
           0%,100% {
             box-shadow: 0 0 0 rgba(255,255,255,0);
@@ -96,7 +91,6 @@ export default function CTASection() {
           }
         }
 
-        /* Button shimmer */
         @keyframes shimmer {
           0% {
             left: -120%;
@@ -172,9 +166,7 @@ export default function CTASection() {
         }`}
       >
         {/* Badge */}
-        <div
-          className="badge-anim inline-flex items-center justify-center rounded-full bg-white/15 backdrop-blur-md border border-white/20 px-6 py-2 mb-8 opacity-0"
-        >
+        <div className="badge-anim inline-flex items-center justify-center rounded-full bg-white/15 backdrop-blur-md border border-white/20 px-6 py-2 mb-8 opacity-0">
           <span className="text-sm sm:text-base font-semibold text-white">
             Mulai Sekarang
           </span>
@@ -208,11 +200,10 @@ export default function CTASection() {
         {/* Button */}
         <div className="btn-anim opacity-0 mt-12">
           <Link
-            href="https://wa.me/6281234567890?text=Halo%20saya%20ingin%20berkonsultasi"
-            target="_blank"
+            href="mailto:pt.sebangku@gmail.com"
             className="cta-button inline-flex items-center gap-3 bg-white text-[#2B7DDA] font-bold rounded-2xl px-8 sm:px-10 py-5 text-lg"
           >
-            <WhatsappLogoIcon
+            <EnvelopeSimpleIcon
               size={30}
               weight="fill"
               className="text-[#2B7DDA]"

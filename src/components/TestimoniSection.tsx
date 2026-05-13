@@ -2,8 +2,12 @@
 
 import { useEffect, useRef, useState } from "react";
 import { motion, useInView, type Variants } from "framer-motion";
-import { ChevronLeft, ChevronRight, Star } from "lucide-react";
-import Image from "next/image";
+import {
+  ChevronLeft,
+  ChevronRight,
+  Star,
+  UserCircle2,
+} from "lucide-react";
 
 /* ──────────────────────────────────────────────
    DATA
@@ -17,9 +21,6 @@ const testimonials = [
     name: "Dosen Universitas Pendidikan Indonesia (UPI)",
     org: "",
     rating: 5,
-    avatar: "",
-    initials: "SB",
-    bgColor: "bg-purple-600",
   },
   {
     accent: "from-blue-500 via-cyan-400 to-yellow-400",
@@ -28,10 +29,6 @@ const testimonials = [
     name: "Mitra Proyek Literasi Finansial",
     org: "",
     rating: 5,
-    avatar:
-      "https://images.unsplash.com/photo-1560250097-0b93528c311a?w=80&q=80&auto=format&fit=crop&crop=face",
-    initials: "UP",
-    bgColor: "bg-blue-700",
   },
   {
     accent: "from-blue-500 via-indigo-500 to-yellow-400",
@@ -40,9 +37,6 @@ const testimonials = [
     name: "Dosen Universitas Sebelas Maret",
     org: "",
     rating: 5,
-    avatar: "",
-    initials: "M",
-    bgColor: "bg-indigo-600",
   },
   {
     accent: "from-blue-500 via-blue-400 to-yellow-300",
@@ -51,10 +45,6 @@ const testimonials = [
     name: "Dokter Spesialis Kandungan & Kebidanan",
     org: "",
     rating: 5,
-    avatar:
-      "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=80&q=80&auto=format&fit=crop&crop=face",
-    initials: "DW",
-    bgColor: "bg-blue-600",
   },
   {
     accent: "from-teal-500 via-green-400 to-blue-400",
@@ -63,9 +53,6 @@ const testimonials = [
     name: "Peneliti Kebudayaan & Sejarah dari Jepang",
     org: "",
     rating: 5,
-    avatar: "",
-    initials: "KS",
-    bgColor: "bg-teal-600",
   },
 ];
 
@@ -144,26 +131,11 @@ function TestimoniCard({
 
         {/* Footer */}
         <div className="border-t border-gray-100 pt-4 flex items-center gap-3">
-          {/* Avatar */}
-          {t.avatar ? (
-            <div className="relative w-11 h-11 rounded-full overflow-hidden shrink-0 ring-2 ring-white shadow">
-              <Image
-                src={t.avatar}
-                alt={t.name}
-                fill
-                className="object-cover"
-                sizes="44px"
-              />
-            </div>
-          ) : (
-            <div
-              className={`w-11 h-11 rounded-full ${t.bgColor} flex items-center justify-center shrink-0 ring-2 ring-white shadow`}
-            >
-              <span className="text-white text-sm font-bold">
-                {t.initials}
-              </span>
-            </div>
-          )}
+
+          {/* Profile Icon */}
+          <div className="w-11 h-11 rounded-full bg-[#EFF6FF] flex items-center justify-center shrink-0 ring-2 ring-white shadow-sm">
+            <UserCircle2 className="w-7 h-7 text-[#3A89D6]" />
+          </div>
 
           {/* Info */}
           <div className="flex flex-col min-w-0">
@@ -256,6 +228,7 @@ export default function TestimoniSection() {
       className="py-16 md:py-20 lg:py-28 bg-[#F5F7FA] overflow-hidden"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
         {/* Header */}
         <motion.div
           className="flex justify-center mb-5"
@@ -322,6 +295,7 @@ export default function TestimoniSection() {
 
           {/* Controls */}
           <div className="flex items-center justify-center gap-3 md:gap-4">
+
             {/* Prev */}
             <button
               onClick={prev}

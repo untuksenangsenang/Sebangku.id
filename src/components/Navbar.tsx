@@ -52,7 +52,7 @@ export default function Navbar() {
                 />
               </div>
 
-              <span className="text-[18px] font-bold text-[#3989D6]">
+              <span className="text-[18px] font-bold text-[#3989D6] bg-white rounded-sm px-2">
                 PT. Sebangku Jaya Abadi
               </span>
             </Link>

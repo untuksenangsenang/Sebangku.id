@@ -288,7 +288,7 @@ export default function HeroSection() {
           {/* CTA */}
           <div className="anim-btn">
             <Link
-              href="https://wa.me/6281234567890?text=Halo%20saya%20ingin%20konsultasi%20edugame"
+              href="mailto:pt.sebangku@gmail.com"
               target="_blank"
               className="cta-btn inline-flex items-center gap-3 text-white font-semibold rounded-full px-7 py-3.5"
               style={{ fontSize: "clamp(0.82rem, 1.1vw, 0.95rem)" }}

@@ -267,7 +267,7 @@ export default function FAQSection() {
                 </p>
 
                 <Link
-                  href="https://wa.me/6281234567890"
+                  href="mailto:pt.sebangku@gmail.com"
                   target="_blank"
                   className="cta-btn inline-flex items-center gap-2 rounded-full px-6 py-3 text-white font-semibold"
                 >

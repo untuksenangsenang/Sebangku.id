@@ -394,7 +394,7 @@ export default function CaraKerjaSection() {
           </h3>
 
           <Link
-            href="https://wa.me/6281234567890"
+            href="mailto:pt.sebangku@gmail.com"
             target="_blank"
             className="cta-btn relative z-10 inline-flex items-center gap-2 rounded-full px-10 py-4 text-white font-bold"
           >

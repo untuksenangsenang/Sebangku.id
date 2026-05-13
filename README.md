@@ -1,63 +1,93 @@
-# 🎓 Sebangku.id – Company Profile & Learning Platform
-
-Sebangku.id adalah platform edukasi berbasis permainan (board game learning) yang membantu meningkatkan pengalaman belajar siswa menjadi lebih interaktif, menyenangkan, dan bermakna.
-
-Project ini merupakan **company profile + sistem dinamis** yang terintegrasi dengan backend menggunakan Supabase.
 
 ---
 
-## 🚀 Tech Stack
+# 🎓 PT Sebangku Jaya Abadi — Company Profile Website
 
-* ⚛️ Frontend: Next.js (App Router)
+Website resmi PT Sebangku Jaya Abadi yang menghadirkan transformasi pembelajaran melalui media kreatif dan teknologi interaktif.
+
+Project ini dibangun menggunakan **Next.js App Router** dengan desain modern, responsive, dan berfokus pada pengalaman pengguna yang elegan serta profesional.
+
+---
+
+# ✨ Features
+
+* 🎨 Modern Company Profile UI
+* 📱 Fully Responsive Design
+* ⚡ Smooth Animation & Transition
+* 🪟 Glassmorphism Navbar
+* 💬 Interactive Testimonial Section
+* 🚀 Optimized Performance
+* 🖼️ Next.js Image Optimization
+* 🎯 SEO Optimized Metadata
+* 📧 CTA Email Integration
+* 🌙 Clean Component Architecture
+
+---
+
+# 🚀 Tech Stack
+
+* ⚛️ Framework: Next.js 15 (App Router)
 * 🎨 Styling: Tailwind CSS
-* 🔥 Backend: Next.js API Route
-* 🗄️ Database & Storage: Supabase
-* 🧠 State: React Hooks
-* 🖼️ Image Handling: Next/Image + Supabase Storage
+* 🎞️ Animation: Framer Motion
+* 🧩 Icons: Lucide React
+* 🔤 Font: Poppins
+* 🖼️ Image Optimization: Next/Image
+* 🧠 State Management: React Hooks
 
 ---
 
-## 📁 Struktur Project
+# 📁 Project Structure
 
-```
+```bash
 src/
  ├── app/
- │    ├── api/
- │    │    ├── contact/
- │    │    │     └── route.ts
- │    │    ├── partners/
- │    │    │     └── route.ts
- │    │
- │    ├── components/
- │    │    ├── ContactSection.tsx
- │    │    ├── TrustSection.tsx
- │    │    ├── HeroSection.tsx
- │    │    └── ...
- │    │
- │    ├── page.tsx
+ │    ├── favicon.ico
+ │    ├── globals.css
+ │    ├── layout.tsx
+ │    └── page.tsx
+ │
+ ├── components/
+ │    ├── Navbar.tsx
+ │    ├── HeroSection.tsx
+ │    ├── ExpertiseSection.tsx
+ │    ├── EcosystemSection.tsx
+ │    ├── WorkSection.tsx
+ │    ├── TestimoniSection.tsx
+ │    ├── FAQSection.tsx
+ │    ├── CTASection.tsx
+ │    └── Footer.tsx
  │
  ├── lib/
- │    └── supabase.ts
+ │    └── animation/
+ │         ├── motion.tsx
+ │         ├── transitions.ts
+ │         └── variants.ts
  │
- ├── public/
- │
- └── styles/
+ └── public/
+      └── assets/
 ```
 
 ---
 
-## ⚙️ Instalasi & Setup
+# ⚙️ Installation
 
-### 1. Clone Repository
+## 1. Clone Repository
 
 ```bash
 git clone https://github.com/username/sebangku-id.git
+```
+
+---
+
+## 2. Navigate to Project
+
+```bash
 cd sebangku-id
 ```
 
 ---
 
-### 2. Install Dependencies
+## 3. Install Dependencies
 
 ```bash
 npm install
@@ -65,176 +95,128 @@ npm install
 
 ---
 
-### 3. Setup Environment Variables
-
-Buat file `.env.local`:
-
-```env
-NEXT_PUBLIC_SUPABASE_URL=your_project_url
-NEXT_PUBLIC_SUPABASE_ANON_KEY=your_anon_key
-```
-
----
-
-### 4. Jalankan Project
+## 4. Run Development Server
 
 ```bash
 npm run dev
 ```
 
-Buka di browser:
+---
 
-```
+## 5. Open Browser
+
+```bash
 http://localhost:3000
 ```
 
 ---
 
-## 🗄️ Database (Supabase)
+# 🎨 UI Sections
 
-### Table: `partners`
-
-| Column     | Type      | Description    |
-| ---------- | --------- | -------------- |
-| id         | uuid      | Primary Key    |
-| name       | text      | Nama partner   |
-| logo       | text      | URL logo       |
-| created_at | timestamp | Auto timestamp |
-
----
-
-### Table: `contacts`
-
-| Column     | Type      | Description    |
-| ---------- | --------- | -------------- |
-| id         | uuid      | Primary Key    |
-| name       | text      | Nama user      |
-| email      | text      | Email          |
-| message    | text      | Pesan          |
-| created_at | timestamp | Auto timestamp |
+* ✅ Hero Section
+* ✅ About / Expertise
+* ✅ Ecosystem Showcase
+* ✅ Work Showcase
+* ✅ Testimonials Carousel
+* ✅ FAQ Accordion
+* ✅ CTA Section
+* ✅ Modern Footer
+* ✅ Glassmorphism Navbar
 
 ---
 
-## 🔐 Supabase Policy (WAJIB)
+# 📸 Assets
 
-### Partners (Read)
+Semua asset gambar berada pada folder:
 
-```sql
-create policy "Allow public read partners"
-on "public"."partners"
-for select
-to public
-using (true);
+```bash
+public/assets
+```
+
+Contoh:
+
+* logo.png
+* hero-photo.jpg
+* caca.png
+* maria.png
+* coming.jpg
+
+---
+
+# 🧠 Animation System
+
+Project menggunakan Framer Motion dengan struktur reusable animation:
+
+```bash
+src/lib/animation
+```
+
+Berisi:
+
+* reusable motion wrapper
+* transitions
+* animation variants
+
+---
+
+# 📧 Contact
+
+CTA dan kontak website diarahkan ke email resmi:
+
+```bash
+pt.sebangku@gmail.com
 ```
 
 ---
 
-### Contact (Insert)
+# 🌐 SEO Optimization
 
-```sql
-create policy "Allow insert contact"
-on "public"."contacts"
-for insert
-to public
-with check (true);
-```
+Website telah menggunakan:
 
----
-
-## 📡 API Endpoints
-
-### GET Partners
-
-```
-GET /api/partners
-```
-
-Response:
-
-```json
-[
-  {
-    "id": "...",
-    "name": "SD Bopkri",
-    "logo": "https://...",
-    "created_at": "..."
-  }
-]
-```
+* Open Graph Metadata
+* Twitter Card
+* Responsive Viewport
+* Optimized Metadata
+* Dynamic Page Title
+* Semantic HTML Structure
 
 ---
 
-### POST Contact
+# 🚧 Development Plan
 
-```
-POST /api/contact
-```
-
-Body:
-
-```json
-{
-  "name": "Rafi",
-  "email": "rafi@email.com",
-  "message": "Saya tertarik"
-}
-```
-
----
-
-## 🖼️ Supabase Storage (Logo Partner)
-
-Disarankan menggunakan Supabase Storage:
-
-1. Buat bucket: `partners`
-2. Upload logo
-3. Ambil public URL
-4. Simpan ke database
-
----
-
-## ✨ Fitur Utama
-
-* ✅ Dynamic Partner Section (Supabase)
-* ✅ Contact Form (API + Database)
-* ✅ Responsive Design
-* ✅ Optimized Image Handling
-* ✅ Clean UI (Company Profile Style)
-
----
-
-## 🚧 Development Plan
-
+* [ ] Dark Mode
+* [ ] CMS Integration
+* [ ] Blog / Article System
+* [ ] Dynamic Portfolio
 * [ ] Dashboard Admin
-* [ ] Upload Partner via UI
-* [ ] Testimonial Management
-* [ ] Authentication (Admin)
+* [ ] Multi-language Support
 * [ ] Analytics Integration
 
 ---
 
-## 🧑‍💻 Author
+# 🧑‍💻 Author
 
-Developed by:
-**Capstone Project Sebangku Gamecafe**
+Developed for:
+
+**PT Sebangku Jaya Abadi**
 
 ---
 
-## 📄 License
+# 📄 License
 
 This project is licensed under the MIT License.
 
 ---
 
-## 💡 Catatan
+# 💡 Notes
 
 Jika terjadi error:
 
-* Pastikan `.env.local` benar
-* Restart server setelah perubahan config
-* Cek Supabase policy
-* Pastikan API route berada di `app/api`
+* Pastikan dependency sudah terinstall
+* Jalankan ulang development server
+* Cek path assets pada folder `public/assets`
+* Gunakan Node.js versi terbaru
 
 ---
 
-🔥 Happy Coding!
+🔥 Built with Next.js & Tailwind CSS
